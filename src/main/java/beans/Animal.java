@@ -10,13 +10,13 @@ public class Animal {
     @Column(name = "name")
     private String name;
     private char sex;
-    private String location;
     private Double weight;
     private String personality;
     private String info;
     @ManyToOne
     @JoinColumn(name = "name")
     private Location area;
+
 
     public Animal(){
 
