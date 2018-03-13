@@ -5,7 +5,14 @@ import java.util.Objects;
 
 @Entity
 public class Genus {
-    String genus;
+   private String genus;
+   public Genus(){
+
+   }
+
+    public Genus(String genus){
+    this.setGenus(genus);
+    }
 
     public String getGenus() {
         return genus;

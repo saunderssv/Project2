@@ -8,6 +8,14 @@ import java.util.Objects;
 public class Species {
     @Id
     String species;
+    public Species(){
+
+    }
+
+    public Species(String species){
+        this.setSpecies(species);
+
+    }
 
     public String getSpecies() {
         return species;
