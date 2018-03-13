@@ -19,6 +19,7 @@ public class Animal {
     private Genus genus;
     private Species species;
 
+
     public Animal(){
 
     }
