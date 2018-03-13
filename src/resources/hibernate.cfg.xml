@@ -18,12 +18,12 @@
             $auNd3R5
         </property>
 
-        <!--property name="net.sf.ehcache.configurationResourceName">
+        <property name="net.sf.ehcache.configurationResourceName">
             /ehcache.xml
-        </property -->
-        <!--<property name="hibernate.cache.region.factory_class">-->
-            <!--net.sf.ehcache.hibernate.EhCacheRegionFactory-->
-        <!--</property>-->
+        </property>
+        <property name="hibernate.cache.region.factory_class">
+            net.sf.ehcache.hibernate.EhCacheRegionFactory
+        </property>
         <property name="hibernate.cache.use_second_level_cache">true</property>
         <property name="hibernate.cache.use_query_cache">true</property>
 
