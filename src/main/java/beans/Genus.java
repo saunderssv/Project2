@@ -5,7 +5,14 @@ import java.util.Objects;
 
 @Entity
 public class Genus {
-    String genus;
+   private String genus;
+   public Genus(){
+
+   }
+
+    public Genus(String genus){
+    this.setGenus(genus);
+    }
 
     public String getGenus() {
         return genus;
@@ -27,5 +34,12 @@ public class Genus {
     public int hashCode() {
 
         return Objects.hash(getGenus());
+    }
+
+    @Override
+    public String toString() {
+        return "Genus{" +
+                "genus='" + genus + '\'' +
+                '}';
     }
 }
