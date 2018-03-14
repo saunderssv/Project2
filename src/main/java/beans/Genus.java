@@ -35,4 +35,11 @@ public class Genus {
 
         return Objects.hash(getGenus());
     }
+
+    @Override
+    public String toString() {
+        return "Genus{" +
+                "genus='" + genus + '\'' +
+                '}';
+    }
 }

@@ -38,4 +38,11 @@ public class Species {
 
         return Objects.hash(getSpecies());
     }
+
+    @Override
+    public String toString() {
+        return "Species{" +
+                "species='" + species + '\'' +
+                '}';
+    }
 }

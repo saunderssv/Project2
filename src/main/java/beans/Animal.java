@@ -1,6 +1,7 @@
 package beans;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
 @Table(name = "animal")
@@ -22,6 +23,41 @@ public class Animal {
 
     public Animal(){
 
+    }
+
+    @Override
+    public String toString() {
+        return "Animal{" +
+                "name='" + name + '\'' +
+                ", sex=" + sex +
+                ", weight=" + weight +
+                ", personality='" + personality + '\'' +
+                ", info='" + info + '\'' +
+                ", area=" + area +
+                ", genus=" + genus +
+                ", species=" + species +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Animal animal = (Animal) o;
+        return getSex() == animal.getSex() &&
+                Objects.equals(getName(), animal.getName()) &&
+                Objects.equals(getWeight(), animal.getWeight()) &&
+                Objects.equals(getPersonality(), animal.getPersonality()) &&
+                Objects.equals(getInfo(), animal.getInfo()) &&
+                Objects.equals(getArea(), animal.getArea()) &&
+                Objects.equals(getGenus(), animal.getGenus()) &&
+                Objects.equals(getSpecies(), animal.getSpecies());
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(getName(), getSex(), getWeight(), getPersonality(), getInfo(), getArea(), getGenus(), getSpecies());
     }
 
     public Genus getGenus() {
