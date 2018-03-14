@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration SYSTEM
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<!--configure our sessionFactory-->
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.connection.driver_class">
+            org.postgresql.Driver
+        </property>
+        <property name="hibernate.connection.url">
+            jdbc:postgresql://revpgtest.cgvvitkcwvgc.us-east-2.rds.amazonaws.com/zoo_test
+        </property>
+        <property name="hibernate.connection.username">
+            Bishop
+        </property>
+        <property name="hibernate.connection.password">
+            $auNd3R5
+        </property>
+
+        <property name="net.sf.ehcache.configurationResourceName">
+            /ehcache.xml
+        </property>
+        <property name="hibernate.cache.region.factory_class">
+            net.sf.ehcache.hibernate.EhCacheRegionFactory
+        </property>
+        <property name="hibernate.cache.use_second_level_cache">true</property>
+        <property name="hibernate.cache.use_query_cache">true</property>
+
+        <property name="hibernate.dialect">
+            org.hibernate.dialect.PostgreSQLDialect
+        </property>
+
+        <!--DEV/TEST ONLY-->
+        <property name="format_sql">true</property>
+        <property name="hibernate.hbm2ddl.auto">update</property>
+        <!--DEV/TEST ONLY-->
+
+
+        <!--Map a class to the database-->
+        <!--<mapping resource="Hero.hbm.xml"/>-->
+        <!--<mapping class="com.ex.bean.Hero"/>-->
+
+    </session-factory>
+</hibernate-configuration>

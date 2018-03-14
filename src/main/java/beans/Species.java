@@ -8,6 +8,14 @@ import java.util.Objects;
 public class Species {
     @Id
     String species;
+    public Species(){
+
+    }
+
+    public Species(String species){
+        this.setSpecies(species);
+
+    }
 
     public String getSpecies() {
         return species;
@@ -29,5 +37,12 @@ public class Species {
     public int hashCode() {
 
         return Objects.hash(getSpecies());
+    }
+
+    @Override
+    public String toString() {
+        return "Species{" +
+                "species='" + species + '\'' +
+                '}';
     }
 }
