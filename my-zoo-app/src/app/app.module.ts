@@ -10,7 +10,6 @@ import { ScheduleCmpComponent } from './schedule-cmp/schedule-cmp.component';
 import { HomeCmpComponent } from './home-cmp/home-cmp.component';
 
 const appRoutes: Routes = [
-  {path: ' ', redirectTo: 'app-home-cmp'},
   {path: 'app-home-cmp', component: HomeCmpComponent },
   {path: 'app-schedule-cmp', component: ScheduleCmpComponent },
   {path: 'app-map-cmp', component: MapCmpComponent },

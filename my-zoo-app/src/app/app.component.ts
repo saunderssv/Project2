@@ -13,6 +13,15 @@ export class AppComponent {
   constructor(private router: Router){
 
   }
+  ngOnInit() {
+    this.router.navigate(['app-home-cmp'])
+  }
+
+  onClickHome(event){
+    this.router.navigate(['app-home-cmp'])
+  }
+
+  
   onClickSchedule(event){
     this.router.navigate(['app-schedule-cmp'])
   }
