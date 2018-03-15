@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router} from '@angular/router';
+
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,21 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+
+  constructor(private router: Router){
+
+  }
+  onClickSchedule(event){
+    this.router.navigate(['app-schedule-cmp'])
+  }
+
+  onClickMap(event){
+    this.router.navigate(['app-map-cmp'])
+  }
+
+  onClickSupport(event){
+    this.router.navigate(['app-support-cmp'])
+  }
+
+
 }

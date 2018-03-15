@@ -1,4 +1,12 @@
-<div>
-  <app-counter></app-counter>
-</div>
+<div class="container my-5">
+    <nav class="nav nav-pills nav-justified pt-5">
+      <button class="nav-item btn btn-info" (click)="onClickHome($event)">Home</button>
+      <button class="nav-item btn btn-info mx-3" (click)="onClickSchedule($event)">Schedule</button>
+      <span>ZOOTROPOLIS</span>
+      <button class="nav-item btn btn-info mx-3" (click)="onClickMap($event)">Map</button>
+      <button class="nav-item btn btn-info" (click)="onClickSupport($event)">Support</button>
+    </nav>
+   <app-home-cmp></app-home-cmp>
+  </div>
+  <router-outlet></router-outlet>
 
