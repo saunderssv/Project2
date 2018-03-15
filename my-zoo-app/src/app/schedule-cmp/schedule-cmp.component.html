@@ -8,10 +8,10 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>Breakfast with Orangutan</td>
-        <td>Kampung Sumatra</td>
-        <td>8:00 AM - 9:30 AM</td>
+      <tr *ngFor="let event of schedule">
+        <td class="what">{{event.what}}</td>
+        <td class="where">{{event.where}}</td>
+        <td class="when">{{event.when}}</td>
       </tr>
     </tbody>
   </table>
