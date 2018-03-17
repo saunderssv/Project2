@@ -10,9 +10,10 @@ import { ScheduleCmpComponent } from './schedule-cmp/schedule-cmp.component';
 import { HomeCmpComponent } from './home-cmp/home-cmp.component';
 import { LoginCmpComponent } from './login-cmp/login-cmp.component';
 import { FooterCmpComponent } from './footer-cmp/footer-cmp.component';
+import { LoginService } from './services/login.service';
 
 const appRoutes: Routes = [
-  {path: 'app-login-cmp', component: LoginCmpComponent},
+  {path: 'app-administration', component: LoginCmpComponent},
   {path: 'app-home-cmp', component: HomeCmpComponent },
   {path: 'app-schedule-cmp', component: ScheduleCmpComponent },
   {path: 'app-map-cmp', component: MapCmpComponent },
@@ -35,7 +36,7 @@ const appRoutes: Routes = [
     BrowserModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

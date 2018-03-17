@@ -12,9 +12,6 @@ export class FooterCmpComponent implements OnInit {
 
   ngOnInit() {
   }
-  onClickLogin(event){
-    this.router.navigate(['app-login-cmp'])
-  }
 
 
 }
