@@ -1,0 +1,171 @@
+package p2.backend.Beans;
+
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+import java.util.Set;
+
+@Entity
+@Table(name = "animal")
+public class Animal {
+    @Id @GeneratedValue(strategy = GenerationType.AUTO) @Column(name = "animalId")
+    private int animalId;
+
+    @Column(name = "animalName")
+    private String animalName;
+
+    @Column(name = "scientificName")
+    private String scientificName;
+
+    @Column(name = "funFact")
+    private String funFact;
+
+    @Column(name = "summary")
+    private String summary;
+
+    @Column(name = "numOfAnimal")
+    private int numOfAnimal;
+
+    @Column(name = "tracking")
+    private int tracking;
+
+    @OneToMany(mappedBy = "foodId", orphanRemoval = true)
+    private List<Food> food = new ArrayList<>();
+
+    @ManyToMany(mappedBy = "animals")
+    private Set<Employee> employees;
+
+    public Animal(){
+
+    }
+
+    public Animal(String animalName, String scientificName, String funFact, String summary, int numOfAnimal, int tracking, List<Food> food, Set<Employee> employees) {
+        this.animalName = animalName;
+        this.scientificName = scientificName;
+        this.funFact = funFact;
+        this.summary = summary;
+        this.numOfAnimal = numOfAnimal;
+        this.tracking = tracking;
+        this.food = food;
+        this.employees = employees;
+    }
+
+    public Animal(String animalName, String scientificName, String funFact, String summary, int numOfAnimal, int tracking) {
+        this.animalName = animalName;
+        this.scientificName = scientificName;
+        this.funFact = funFact;
+        this.summary = summary;
+        this.numOfAnimal = numOfAnimal;
+        this.tracking = tracking;
+    }
+
+    public int getAnimalId() {
+        return animalId;
+    }
+
+    public void setAnimalId(int animalId) {
+        this.animalId = animalId;
+    }
+
+    public String getAnimalName() {
+        return animalName;
+    }
+
+    public void setAnimalName(String animalName) {
+        this.animalName = animalName;
+    }
+
+    public String getScientificName() {
+        return scientificName;
+    }
+
+    public void setScientificName(String scientificName) {
+        this.scientificName = scientificName;
+    }
+
+    public String getFunFact() {
+        return funFact;
+    }
+
+    public void setFunFact(String funFact) {
+        this.funFact = funFact;
+    }
+
+    public String getSummary() {
+        return summary;
+    }
+
+    public void setSummary(String summary) {
+        this.summary = summary;
+    }
+
+    public int getNumOfAnimal() {
+        return numOfAnimal;
+    }
+
+    public void setNumOfAnimal(int numOfAnimal) {
+        this.numOfAnimal = numOfAnimal;
+    }
+
+    public int getTracking() {
+        return tracking;
+    }
+
+    public void setTracking(int tracking) {
+        this.tracking = tracking;
+    }
+
+    public List<Food> getFood() {
+        return food;
+    }
+
+    public void setFood(List<Food> food) {
+        this.food = food;
+    }
+
+    public Set<Employee> getEmployees() {
+        return employees;
+    }
+
+    public void setEmployees(Set<Employee> employees) {
+        this.employees = employees;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Animal animal = (Animal) o;
+        return animalId == animal.animalId &&
+                numOfAnimal == animal.numOfAnimal &&
+                tracking == animal.tracking &&
+                Objects.equals(animalName, animal.animalName) &&
+                Objects.equals(scientificName, animal.scientificName) &&
+                Objects.equals(funFact, animal.funFact) &&
+                Objects.equals(summary, animal.summary) &&
+                Objects.equals(food, animal.food) &&
+                Objects.equals(employees, animal.employees);
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(animalId, animalName, scientificName, funFact, summary, numOfAnimal, tracking, food, employees);
+    }
+
+    @Override
+    public String toString() {
+        return "Animal{" +
+                "animalId=" + animalId +
+                ", animalName='" + animalName + '\'' +
+                ", scientificName='" + scientificName + '\'' +
+                ", funFact='" + funFact + '\'' +
+                ", summary='" + summary + '\'' +
+                ", numOfAnimal=" + numOfAnimal +
+                ", tracking=" + tracking +
+                ", food=" + food +
+                ", employees=" + employees +
+                '}';
+    }
+}
