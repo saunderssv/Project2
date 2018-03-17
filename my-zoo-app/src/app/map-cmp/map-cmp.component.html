@@ -1,3 +1,11 @@
-<div class="container py-5">
-  <iframe src="https://snazzymaps.com/embed/55878" width="100%" height="600px" style="border:none;"></iframe>
+<div class="container">
+  <agm-map [latitude]= lat [longitude]= lng [zoom]=15 [minZoom]=15 [maxZoom]=17>
+    <agm-marker *ngFor= "let d of data; let i = index" [latitude]=d.lat [longitude]= d.lng>
+      <agm-snazzy-info-window [maxWidth]="200" [closeWhenOthersOpen]="true">
+        <ng-template>
+            My first Snazzy Info Window!
+        </ng-template>
+      </agm-snazzy-info-window>
+    </agm-marker>
+  </agm-map>
 </div>
