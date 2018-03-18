@@ -9,13 +9,13 @@
           <!-- <img src="http://i.imgur.com/RcmcLv4.png" class="img-responsive" alt="" /> -->
           <input type="text" name="username" placeholder="Username" required class="form-control input-lg" />
           
-          <input type="password" class="form-control input-lg" id="password" placeholder="Password" required="" />
+          <input type="password" class="form-control input-lg my-2" id="password" placeholder="Password" required="" />
           
           
           <div class="pwstrength_viewport_progress"></div>
           
           
-          <button type="submit" name="go" class="btn btn-info btn-lg btn-block">Sign in</button>
+          <button type="submit" name="go" class="btn btn-info btn-lg btn-block" (click)="onClickSubmit($event)">Sign in</button>
           <!-- <div>
             <a href="#">Create account</a> or <a href="#">reset password</a>
           </div> -->
