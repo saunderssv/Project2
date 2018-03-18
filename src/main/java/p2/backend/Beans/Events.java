@@ -1,5 +1,8 @@
 package p2.backend.Beans;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ObjectNode;
+
 import javax.persistence.*;
 import java.util.Objects;
 
@@ -12,10 +15,10 @@ public class Events {
     @Column(name = "what")
     private String what;
 
-    @Column(name = "where")
+    @Column(name = "location")
     private String where;
 
-    @Column(name = "when")
+    @Column(name = "time")
     private String when;
 
     public Events(){
@@ -79,11 +82,9 @@ public class Events {
 
     @Override
     public String toString() {
-        return "Events{" +
-                "eventId=" + eventId +
-                ", what='" + what + '\'' +
-                ", where='" + where + '\'' +
-                ", when='" + when + '\'' +
-                '}';
+        ObjectMapper mapper = new ObjectMapper();
+        ObjectNode json = mapper.createObjectNode();
+        json.put("what",what).put("where",where).put("when",when);
+        return json.toString();
     }
 }

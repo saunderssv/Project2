@@ -1,5 +1,8 @@
 package p2.backend.Beans;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ObjectNode;
+
 import javax.persistence.*;
 import java.util.Objects;
 
@@ -68,10 +71,10 @@ public class Food {
 
     @Override
     public String toString() {
-        return "Food{" +
-                "foodId=" + foodId +
-                ", foodName='" + foodName + '\'' +
-                ", amount=" + amount +
-                '}';
+        ObjectMapper mapper = new ObjectMapper();
+        ObjectNode json = mapper.createObjectNode();
+        json.put("foodName",foodName)
+                .put("amount",amount);
+        return json.toString();
     }
 }

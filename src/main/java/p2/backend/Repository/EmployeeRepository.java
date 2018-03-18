@@ -9,5 +9,5 @@ import java.util.List;
 @Repository
 public interface EmployeeRepository extends CrudRepository<Employee, Integer> {
 
-    Employee findByUsernameAndPassword(String username, String password);
+    Employee findByUsername(String username);
 }

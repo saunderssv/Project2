@@ -16,7 +16,7 @@ public class EmployeeService {
     }
 
     public Employee byLoginPassword(String username, String password){
-        return employeeRepository.findByUsernameAndPassword(username,password);
+        return employeeRepository.findByUsername(username);
     }
 
     public void saveEmployee(Employee save){

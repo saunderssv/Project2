@@ -1,5 +1,8 @@
 package p2.backend.Beans;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ObjectNode;
+
 import javax.persistence.*;
 import java.util.List;
 import java.util.Objects;
@@ -129,14 +132,15 @@ public class Employee {
 
     @Override
     public String toString() {
-        return "Employee{" +
-                "employeeId=" + employeeId +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", role=" + role +
-                ", animals=" + animals +
-                '}';
+        ObjectMapper mapper = new ObjectMapper();
+        ObjectNode json = mapper.createObjectNode();
+        json.put("firstName",firstName)
+                .put("lastName",lastName)
+                .put("username",username)
+                .put("password",password)
+                .put("role",role)
+                .putPOJO("animals",animals);
+        return json.toString();
+
     }
 }

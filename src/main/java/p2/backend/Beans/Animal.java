@@ -1,5 +1,8 @@
 package p2.backend.Beans;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ObjectNode;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -156,16 +159,16 @@ public class Animal {
 
     @Override
     public String toString() {
-        return "Animal{" +
-                "animalId=" + animalId +
-                ", animalName='" + animalName + '\'' +
-                ", scientificName='" + scientificName + '\'' +
-                ", funFact='" + funFact + '\'' +
-                ", summary='" + summary + '\'' +
-                ", numOfAnimal=" + numOfAnimal +
-                ", tracking=" + tracking +
-                ", food=" + food +
-                ", employees=" + employees +
-                '}';
+        ObjectMapper mapper = new ObjectMapper();
+        ObjectNode json = mapper.createObjectNode();
+        json.put("animalName",animalName)
+                .put("scientificName",scientificName)
+                .put("funFact",funFact)
+                .put("summary",summary)
+                .put("numOfAnimal",numOfAnimal)
+                .put("tracking",tracking)
+                .putPOJO("food",food)
+                .putPOJO("employees",employees);
+        return json.toString();
     }
 }
