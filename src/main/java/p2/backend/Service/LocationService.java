@@ -15,7 +15,7 @@ public class LocationService {
         this.locationRepository = locationRepository;
     }
 
-    public Iterable<Location> listofLocations(LocationRepository locationRepository) {
+    public Iterable<Location> listofLocations() {
         return locationRepository.findAll();
     }
 }

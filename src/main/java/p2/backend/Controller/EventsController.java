@@ -2,13 +2,11 @@ package p2.backend.Controller;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import p2.backend.Beans.Events;
 import p2.backend.Service.EventsService;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/Event")
 public class EventsController {
@@ -19,7 +17,7 @@ public class EventsController {
     public EventsController(EventsService eventsService){
         this.eventsService = eventsService;
     }
-    @RequestMapping("/Events")
+    @RequestMapping("/")
     public Iterable<Events> EventList(){
         return eventsService.listOfEvents();
     }
