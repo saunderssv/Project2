@@ -65,12 +65,21 @@ describe('Router: App', () => {
     //   expect(location.path()).toBe('/app-login-cmp');
     // }));
 
+<<<<<<< HEAD
     // it('should navigate to Schedule Componenet when we click the schedule button', fakeAsync(() =>{
     //   //fixture.onClickSchedule(event);
     //   router.navigate(['']);
     //   tick();
     //   expect(location.path()).toBe('/app-home-cmp');
     // }))
+=======
+    it('should navigate to Schedule Componenet when we click the schedule button', fakeAsync(() =>{
+      //fixture.onClickSchedule(event);
+      router.navigate(['app-login-cmp']);
+      tick();
+      expect(location.path()).toBe('/app-login-cmp');
+    }))
+>>>>>>> 159f46cf5f0d47a89a8d6207098dd96ca9e70ed9
 });
 
     // it(`should tell ROUTER to navigate when Administration is clicked`, ()=>{

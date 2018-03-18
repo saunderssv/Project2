@@ -1,5 +1,8 @@
-export class AnimalType{
+export enum AnimalType{
     
-
+LION,
+TIGER,
+BEAR,
+ORANGUTAN
 
 }

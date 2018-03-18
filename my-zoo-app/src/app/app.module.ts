@@ -9,6 +9,8 @@ import * as Charts from 'fusioncharts/fusioncharts.charts';
 import * as FintTheme from 'fusioncharts/themes/fusioncharts.theme.fint';
 import { FusionChartsModule } from 'angular4-fusioncharts';
 
+
+import { AdministratorCmpComponent } from './administrator-cmp/administrator-cmp.component';
 import { AppComponent } from './app.component';
 import { CounterComponent } from './counter/counter.component';
 import { MapCmpComponent } from './map-cmp/map-cmp.component';
@@ -21,6 +23,7 @@ import { PieCmpComponent } from './pie-cmp/pie-cmp.component';
 import { BarCmpComponent } from './bar-cmp/bar-cmp.component';
 
 export const appRoutes: Routes = [
+  {path: 'app-administrator-cmp', component: AdministratorCmpComponent},
   {path: 'app-login-cmp', component: LoginCmpComponent},
   {path: 'app-home-cmp', component: HomeCmpComponent },
   {path: 'app-schedule-cmp', component: ScheduleCmpComponent },
