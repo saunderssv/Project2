@@ -14,8 +14,10 @@ import { ScheduleCmpComponent } from './schedule-cmp/schedule-cmp.component';
 import { HomeCmpComponent } from './home-cmp/home-cmp.component';
 import { LoginCmpComponent } from './login-cmp/login-cmp.component';
 import { LoginService } from './services/login.service';
+import { AdministratorCmpComponent } from './administrator-cmp/administrator-cmp.component';
 
 export const appRoutes: Routes = [
+  {path: 'app-administrator-cmp', component: AdministratorCmpComponent},
   {path: 'app-login-cmp', component: LoginCmpComponent},
   {path: 'app-home-cmp', component: HomeCmpComponent },
   {path: 'app-schedule-cmp', component: ScheduleCmpComponent },
@@ -32,7 +34,8 @@ export const appRoutes: Routes = [
     SupportCmpComponent,
     ScheduleCmpComponent,
     HomeCmpComponent,
-    LoginCmpComponent
+    LoginCmpComponent,
+    AdministratorCmpComponent
   ],
   imports: [
     BrowserModule,

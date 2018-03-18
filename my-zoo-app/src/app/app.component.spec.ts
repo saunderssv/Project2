@@ -57,9 +57,9 @@ describe('AppComponent', () => {
 
     it('should navigate to Schedule Componenet when we click the schedule button', fakeAsync(() =>{
       //fixture.onClickSchedule(event);
-      router.navigate(['']);
+      router.navigate(['app-login-cmp']);
       tick();
-      expect(location.path()).toBe('/app-home-cmp');
+      expect(location.path()).toBe('/app-login-cmp');
     }))
 });
 

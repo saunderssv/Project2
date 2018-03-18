@@ -14,7 +14,7 @@ export class AppComponent {
 
   }
   ngOnInit() {
-    this.router.navigate(['app-home-cmp'])
+    //this.router.navigate(['app-home-cmp'])
   }
 
   onClickHome(event){
