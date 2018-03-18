@@ -2,8 +2,8 @@ import { fakeAsync, ComponentFixture, TestBed, tick } from '@angular/core/testin
 import {RouterTestingModule} from "@angular/router/testing";
 import { Location } from '@angular/common';
 import { AppComponent } from './app.component';
-import { appRoutes } from './app.module';
-import { Router } from '@angular/router';
+import { Routes } from '@angular/router';
+import {Router} from "@angular/router";
 import { LoginCmpComponent } from './login-cmp/login-cmp.component';
 import { CounterComponent } from './counter/counter.component';
 import { MapCmpComponent } from './map-cmp/map-cmp.component';
@@ -11,17 +11,24 @@ import { SupportCmpComponent } from './support-cmp/support-cmp.component';
 import { ScheduleCmpComponent } from './schedule-cmp/schedule-cmp.component';
 import { HomeCmpComponent } from './home-cmp/home-cmp.component';
 
-//const routerSpy = jasmine.createSpyObj('Router', ['navigate']);
 
-describe('AppComponent', () => {
-  let component: AppComponent;
+//const routerSpy = jasmine.createSpyObj('Router', ['navigate']);
+export const appRoutes: Routes = [
+  {path: 'app-login-cmp', component: LoginCmpComponent},
+  {path: 'app-home-cmp', component: HomeCmpComponent },
+  {path: 'app-schedule-cmp', component: ScheduleCmpComponent },
+  {path: 'app-map-cmp', component: MapCmpComponent },
+  {path: 'app-support-cmp', component: SupportCmpComponent }
+]
+
+
+describe('Router: App', () => {
   let fixture;
   let router: Router;
   let location: Location;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-
       imports: [RouterTestingModule.withRoutes(appRoutes)],
       declarations: [ 
         AppComponent, 
@@ -32,10 +39,6 @@ describe('AppComponent', () => {
         HomeCmpComponent,
         LoginCmpComponent
        ]
-      // providers: [
-      //   { provide: Router, useValue: routerSpy }
-      // ]
-      
     });
 
     router = TestBed.get(Router); 
@@ -45,9 +48,16 @@ describe('AppComponent', () => {
     router.initialNavigation(); 
   });
 
-    it('true should be true', ()=> {
-      expect(true).toBe(true);
-    })
+    // it('true should be true', ()=> {
+    //   expect(true).toBe(true);
+    // })
+
+
+    // it('navigate to home takes you to /app-home-cmp', fakeAsync(()=>{
+    //   router.navigate(['app-home-cmp']);
+    //   tick();
+    //   expect(location.path()).toBe('/app-home-cmp');
+    // }));
 
     // it('should tell navigate to LoginComponent when we type `app-administration`', fakeAsync(() => {
     //   router.navigate(['app-login-cmp']);
@@ -55,12 +65,12 @@ describe('AppComponent', () => {
     //   expect(location.path()).toBe('/app-login-cmp');
     // }));
 
-    it('should navigate to Schedule Componenet when we click the schedule button', fakeAsync(() =>{
-      //fixture.onClickSchedule(event);
-      router.navigate(['']);
-      tick();
-      expect(location.path()).toBe('/app-home-cmp');
-    }))
+    // it('should navigate to Schedule Componenet when we click the schedule button', fakeAsync(() =>{
+    //   //fixture.onClickSchedule(event);
+    //   router.navigate(['']);
+    //   tick();
+    //   expect(location.path()).toBe('/app-home-cmp');
+    // }))
 });
 
     // it(`should tell ROUTER to navigate when Administration is clicked`, ()=>{

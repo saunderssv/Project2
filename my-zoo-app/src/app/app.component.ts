@@ -14,7 +14,7 @@ export class AppComponent {
 
   }
   ngOnInit() {
-    this.router.navigate(['app-home-cmp'])
+    // this.router.navigate(['app-home-cmp'])
   }
 
   onClickHome(event){
@@ -31,7 +31,7 @@ export class AppComponent {
   }
 
   onClickSupport(event){
-    this.router.navigate(['app-support-cmp'])
+    this.router.navigate(['app-pie-cmp'])
   }
 
 
