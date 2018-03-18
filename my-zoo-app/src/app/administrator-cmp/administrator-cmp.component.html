@@ -1,4 +1,5 @@
-  <ul class="nav nav-tabs" id="myTab" role="tablist">
+ <div class="container">
+ <ul class="nav nav-tabs" id="myTab" role="tablist">
     <li class="nav-item">
       <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Personal</a>
     </li>
@@ -8,18 +9,22 @@
       <li class="nav-item">
         <a class="nav-link" id="inventory-tab" data-toggle="tab" href="#inventory" role="tab" aria-controls="inventory" aria-selected="false">Inventory</a>
       </li>
-    <li *ngIf="zookeeper.title=='OWNER'" class="nav-item">
+      <li class="nav-item">
+        <a class="nav-link" id="stats-tab" data-toggle="tab" href="#stats" role="tab" aria-controls="stats" aria-selected="false">Stats</a>
+      </li>
+    <!-- <li *ngIf="zookeeper.title=='OWNER'" class="nav-item">
       <a class="nav-link" id="park-tab" data-toggle="tab" href="#park" role="tab" aria-controls="park" aria-selected="false">Park</a>
-    </li>
+    </li> -->
+
   </ul>
   
   <div class="tab-content" id="myTabContent">
-      <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+      <!-- <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
           <h3>Welcome {{zookeeper.firstname}}</h3>
           <p>{{zookeeper.title}}</p>
           <p>{{zookeeper.firstname}} {{zookeeper.lastname}}</p>
           <p>{{zookeeper.username}}</p>
-      </div>
+      </div> -->
       <div class="tab-pane fade" id="animal" role="tabpanel" aria-labelledby="animal-tab">
           <h3>Animal Information</h3>
           <table class="table table-hover">
@@ -68,9 +73,13 @@
               </tbody>
             </table>
       </div>
+      <div class="tab-pan fade" id="stats" role="tabpanel" arial-labelledby="stats-tab">
+        <app-pie-cmp> </app-pie-cmp>
+      </div>
       <div class="tab-pane fade" id="park" role="tabpanel" aria-labelledby="park-tab">
           <h3>Park Information</h3>
           <p>Business, Business, Business... Numbers... Is this working?</p>
       </div>
       
     </div>
+  </div>

@@ -31,7 +31,7 @@ export class AppComponent {
   }
 
   onClickSupport(event){
-    this.router.navigate(['app-pie-cmp'])
+    this.router.navigate(['app-support-cmp'])
   }
 
 

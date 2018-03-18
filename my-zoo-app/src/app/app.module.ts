@@ -38,6 +38,7 @@ FusionChartsModule.fcRoot(FusionCharts, Charts, FintTheme);
 
 @NgModule({
   declarations: [
+    AdministratorCmpComponent,
     AppComponent,
     CounterComponent,
     MapCmpComponent,
