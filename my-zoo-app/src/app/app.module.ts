@@ -8,7 +8,9 @@ import * as FusionCharts from 'fusioncharts';
 import * as Charts from 'fusioncharts/fusioncharts.charts';
 import * as FintTheme from 'fusioncharts/themes/fusioncharts.theme.fint';
 import { FusionChartsModule } from 'angular4-fusioncharts';
-
+import {  
+  AuthguardService as AuthGuard
+} from './authguard.service';
 
 import { AdministratorCmpComponent } from './administrator-cmp/administrator-cmp.component';
 import { AppComponent } from './app.component';
@@ -23,7 +25,7 @@ import { PieCmpComponent } from './pie-cmp/pie-cmp.component';
 import { BarCmpComponent } from './bar-cmp/bar-cmp.component';
 
 export const appRoutes: Routes = [
-  {path: 'app-administrator-cmp', component: AdministratorCmpComponent},
+  {path: 'app-administrator-cmp', component: AdministratorCmpComponent, canActivate: [AuthGuard]},
   {path: 'app-login-cmp', component: LoginCmpComponent},
   {path: 'app-home-cmp', component: HomeCmpComponent },
   {path: 'app-schedule-cmp', component: ScheduleCmpComponent },
