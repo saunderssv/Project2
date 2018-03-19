@@ -20,6 +20,10 @@ public class Food {
     @Column(name ="amount")
     private int amount;
 
+    @ManyToOne
+    @JoinColumn(name = "animalId")
+    private Animal animal;
+
     public Food(){
 
     }
