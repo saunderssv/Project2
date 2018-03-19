@@ -24,10 +24,12 @@
     "@angular/platform-browser-dynamic": "^5.2.0",
     "@angular/router": "^5.2.0",
     "@auth0/angular-jwt": "^1.1.0",
+    "@types/jwt-decode": "^2.2.1",
     "angular4-fusioncharts": "^1.0.0",
     "core-js": "^2.4.1",
     "fusioncharts": "^3.12.2",
     "intl": "^1.2.5",
+    "jwt-decode": "^2.2.0",
     "rxjs": "^5.5.6",
     "snazzy-info-window": "^1.1.0",
     "zone.js": "^0.8.19"

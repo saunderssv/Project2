@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
+import { HttpModule } from '@angular/http';
 import { RouterModule, Routes} from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { AgmCoreModule } from '@agm/core';
@@ -53,7 +55,9 @@ FusionChartsModule.fcRoot(FusionCharts, Charts, FintTheme);
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     FusionChartsModule,
+    HttpModule,
     RouterModule.forRoot(appRoutes),
     HttpClientModule,
     AgmCoreModule.forRoot({
