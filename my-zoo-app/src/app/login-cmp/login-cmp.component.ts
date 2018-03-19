@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router} from '@angular/router';
-import { Http, Response } from '@angular/http';
+//import { Http, Response } from '@angular/http';
 
 @Component({
   selector: 'app-login-cmp',
@@ -12,7 +12,7 @@ export class LoginCmpComponent implements OnInit {
   username: string;
   password: string;
  
-  constructor(private router: Router, private http: Http) { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
