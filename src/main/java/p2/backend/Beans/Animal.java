@@ -153,7 +153,7 @@ public class Animal {
     @Override
     public int hashCode() {
 
-        return Objects.hash(animalId, animalName, scientificName, funFact, summary, numOfAnimal, tracking, food, employees);
+        return Objects.hash(animalId, animalName, scientificName, funFact, summary, numOfAnimal, tracking);
     }
 
     @Override

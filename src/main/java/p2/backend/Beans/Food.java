@@ -81,7 +81,7 @@ public class Food {
     @Override
     public int hashCode() {
 
-        return Objects.hash(getFoodId(), getFoodName(), getAmount(), getAnimalFood().hashCode());
+        return Objects.hash(getFoodId(), getFoodName(), getAmount());
     }
 
     @Override

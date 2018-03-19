@@ -127,7 +127,7 @@ public class Employee {
     @Override
     public int hashCode() {
 
-        return Objects.hash(employeeId, firstName, lastName, username, password, role, animals);
+        return Objects.hash(employeeId, firstName, lastName, username, password, role);
     }
 
     @Override

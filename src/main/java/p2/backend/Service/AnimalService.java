@@ -3,10 +3,7 @@ package p2.backend.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import p2.backend.Beans.Animal;
-import p2.backend.Beans.Food;
 import p2.backend.Repository.AnimalRepository;
-
-import java.util.Set;
 
 @Service
 public class AnimalService {
