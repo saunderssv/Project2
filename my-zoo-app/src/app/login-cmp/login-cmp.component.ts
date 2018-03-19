@@ -1,8 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Router} from '@angular/router';
+<<<<<<< HEAD
 import { Http, Response } from '@angular/http';
 import 'rxjs/add/operator/map';
 import * as jwtDecode from "jwt-decode";
+=======
+//import { Http, Response } from '@angular/http';
+>>>>>>> 031c90bbe7f83ee8c443b80345cb5faa697bd30b
 
 @Component({
   selector: 'app-login-cmp',
@@ -15,7 +19,7 @@ export class LoginCmpComponent implements OnInit {
   password: string;
 
  
-  constructor(private router: Router, private http: Http) { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
