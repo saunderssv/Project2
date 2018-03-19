@@ -25,7 +25,7 @@ import { PieCmpComponent } from './pie-cmp/pie-cmp.component';
 import { BarCmpComponent } from './bar-cmp/bar-cmp.component';
 
 export const appRoutes: Routes = [
-  {path: 'app-administrator-cmp', component: AdministratorCmpComponent, canActivate: [AuthGuard]},
+  {path: 'app-administrator-cmp', component: AdministratorCmpComponent}, //canActivate: [AuthGuard]},
   {path: 'app-login-cmp', component: LoginCmpComponent},
   {path: 'app-home-cmp', component: HomeCmpComponent },
   {path: 'app-schedule-cmp', component: ScheduleCmpComponent },
