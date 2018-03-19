@@ -30,11 +30,10 @@ public class Animal {
     @Column(name = "numOfAnimal")
     private int numOfAnimal;
 
-    @Column(name = "tracking")
     private int tracking;
 
-    @OneToMany(mappedBy = "foodId", orphanRemoval = true)
-    private List<Food> food = new ArrayList<>();
+    @ManyToMany(mappedBy = "animalFood")
+    private Set<Food> food;
 
     @ManyToMany(mappedBy = "animals")
     private Set<Employee> employees;
@@ -43,7 +42,7 @@ public class Animal {
 
     }
 
-    public Animal(String animalName, String scientificName, String funFact, String summary, int numOfAnimal, int tracking, List<Food> food, Set<Employee> employees) {
+    public Animal(String animalName, String scientificName, String funFact, String summary, int numOfAnimal, int tracking, Set<Food> food, Set<Employee> employees) {
         this.animalName = animalName;
         this.scientificName = scientificName;
         this.funFact = funFact;
@@ -119,11 +118,11 @@ public class Animal {
         this.tracking = tracking;
     }
 
-    public List<Food> getFood() {
+    public Set<Food> getFood() {
         return food;
     }
 
-    public void setFood(List<Food> food) {
+    public void setFood(Set<Food> food) {
         this.food = food;
     }
 

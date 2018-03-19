@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import javax.persistence.*;
 import java.util.Objects;
+import java.util.Set;
 
 
 @Entity
@@ -20,9 +21,18 @@ public class Food {
     @Column(name ="amount")
     private int amount;
 
-    @ManyToOne
-    @JoinColumn(name = "animalId")
-    private Animal animal;
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "Food_Animal", joinColumns = @JoinColumn(name = "foodId", referencedColumnName = "foodId"),
+            inverseJoinColumns = @JoinColumn(name = "animalId", referencedColumnName = "animalId"))
+    private Set<Animal> animalFood;
+
+    public Set<Animal> getAnimalFood() {
+        return animalFood;
+    }
+
+    public void setAnimalFood(Set<Animal> animalFood) {
+        this.animalFood = animalFood;
+    }
 
     public Food(){
 
@@ -62,15 +72,16 @@ public class Food {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Food food = (Food) o;
-        return foodId == food.foodId &&
-                amount == food.amount &&
-                Objects.equals(foodName, food.foodName);
+        return getFoodId() == food.getFoodId() &&
+                getAmount() == food.getAmount() &&
+                Objects.equals(getFoodName(), food.getFoodName()) &&
+                Objects.equals(getAnimalFood().hashCode(), food.getAnimalFood().hashCode());
     }
 
     @Override
     public int hashCode() {
 
-        return Objects.hash(foodId, foodName, amount);
+        return Objects.hash(getFoodId(), getFoodName(), getAmount(), getAnimalFood().hashCode());
     }
 
     @Override
