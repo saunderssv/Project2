@@ -15,7 +15,7 @@ public class EmployeeService {
         this.employeeRepository = employeeRepository;
     }
 
-    public Employee byLoginPassword(String username, String password){
+    public Employee byUsername(String username){
         return employeeRepository.findByUsername(username);
     }
 
