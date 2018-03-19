@@ -38,7 +38,7 @@ public class UserController {
 
 	}
 
-	@PutMapping("/signin")
+	@PostMapping("/signin")
 	public String signIn(@RequestBody Employee user) {
 		//System.out.println(user.toString());
 		return signinDAO(user);
