@@ -19,21 +19,21 @@
   </ul>
   
   <div class="tab-content" id="pills-tabContent">
-      <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+      <div class="tab-pane fade" id="home" role="tabpanel" aria-labelledby="home-tab">
           <h3>Welcome {{zookeeper.firstname}}</h3>
           <p>{{zookeeper.title}}</p>
           <p>{{zookeeper.firstname}} {{zookeeper.lastname}}</p>
           <p>{{zookeeper.username}}</p>
       </div>
-      <div class="tab-pane fade" id="animal" role="tabpanel" aria-labelledby="animal-tab">
+      <div class="tab-pane fade show active" id="animal" role="tabpanel" aria-labelledby="animal-tab">
           <h3>Animal Information</h3>
-          <table class="table table-hover">
+          <table class="data-table table table-hover">
               <thead>
                 <tr>
                   <th scope="col">#</th>
                   <th scope="col">Animal</th>
-                  <th scope="col">Name</th>
-                  <th scope="col">Sex</th>
+                  <!-- <th scope="col">Name</th>
+                  <th scope="col">Sex</th> -->
                   <th scope="col">Notes</th>
                   <th scope="col">Food</th>
                 </tr>
@@ -42,9 +42,9 @@
                 <tr *ngFor="let anm of animals">
                   <th scope="row">{{anm.id}}</th>
                   <td>{{anm.type}}</td>
-                  <td>{{anm.name}}</td>
-                  <td>{{anm.sex}}</td>
-                  <td>{{anm.notes}}</td>
+                  <!-- <td>{{anm.name}}</td>
+                  <td>{{anm.sex}}</td> -->
+                  <td contenteditable="true" [textContent]="anm.notes" (input)="anm.notes = $event.target.textContent"></td>
                   <td>{{anm.food}}</td>
                 </tr>
               </tbody>
@@ -52,7 +52,7 @@
       </div>
       <div class="tab-pane fade" id="inventory" role="tabpanel" aria-labelledby="inventory-tab">
           <h3>Inventory</h3>
-          <table class="table table-hover">
+          <table class="data-table table table-hover">
               <thead>
                 <tr>
                   <th scope="col">#</th>
@@ -66,9 +66,9 @@
                 <tr *ngFor="let item of inventory">
                   <th scope="row">{{item.id}}</th>
                   <td>{{item.item}}</td>
-                  <td>{{item.quantity}}</td>
-                  <td>{{item.next}}</td>
-                  <td>{{item.notes}}</td>
+                  <td contenteditable="true" [textContent]="item.quantity" (input)="item.quantity = $event.target.textContent"></td>
+                  <td contenteditable="true" [textContent]="item.next" (input)="item.next = $event.target.textContent"></td>
+                  <td contenteditable="true" [textContent]="item.notes" (input)="item.notes = $event.target.textContent"></td>
                 </tr>
               </tbody>
             </table>
@@ -76,10 +76,6 @@
       <div class="tab-pane fade" id="stats" role="tabpanel" arial-labelledby="stats-tab">
         <app-pie-cmp> </app-pie-cmp>
       </div>
-      <div class="tab-pane fade" id="park" role="tabpanel" aria-labelledby="park-tab">
-          <h3>Park Information</h3>
-          <p>Business, Business, Business... Numbers... Is this working?</p>
-      </div>
-      
+            
     </div>
   </div>

@@ -11,3 +11,8 @@
 .tab-pane{
     position: absolute;
 } */
+
+.data-table tr{
+    border-width: 30px;
+
+}

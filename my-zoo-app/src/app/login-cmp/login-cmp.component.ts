@@ -1,12 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router} from '@angular/router';
-<<<<<<< HEAD
 import { Http, Response } from '@angular/http';
 import 'rxjs/add/operator/map';
 import * as jwtDecode from "jwt-decode";
-=======
-//import { Http, Response } from '@angular/http';
->>>>>>> 031c90bbe7f83ee8c443b80345cb5faa697bd30b
+import { LoginService } from '../services/login.service';
 
 @Component({
   selector: 'app-login-cmp',
@@ -19,7 +16,7 @@ export class LoginCmpComponent implements OnInit {
   password: string;
 
  
-  constructor(private router: Router) { }
+  constructor(private router: Router, private loginService: LoginService) { }
 
   ngOnInit() {
   }
@@ -44,6 +41,7 @@ export class LoginCmpComponent implements OnInit {
     var token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJhdWQiOiJtYW5hZ2VyIiwic3ViIjoiS2ltIiwiaXNzIjoiWm9vdHJvcG9saXMiLCJleHAiOjE1MjIzNTA2NTl9.kWpv_TUTxkVZZoZKFMegaNFI9q4zR64vP-4pSLfQVGFkqzZr97r5EJJ8zqEvRNJ_hG-n2aUocAkVwAfQ_8Ltcw'
     var decoded = jwtDecode(token);
     console.log(decoded);
+    this.loginService.userToken = decoded;
 
 
     // var body = { "username":"Kim","password":"lol"}
@@ -55,7 +53,7 @@ export class LoginCmpComponent implements OnInit {
     // ).subscribe (
     //   (data) => {console.log(data)}
     // )
-    // this.router.navigate(['app-administrator-cmp'])
+     this.router.navigate(['app-administrator-cmp'])
   }
 
 

@@ -6,6 +6,8 @@ import { HttpClient } from '@angular/common/http';
 @Injectable()
 export class LoginService {
 
+  userToken: {};
+
   constructor(private http : HttpClient) { }
 
   public postLogin(zookeeper: Zookeeper): Observable<Zookeeper>{
