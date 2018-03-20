@@ -1,8 +1,11 @@
 package p2.backend.Beans;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
+import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -34,11 +37,13 @@ public class Animal {
     private int tracking;
 
     @ManyToMany(mappedBy = "animalFood")
-    @JsonBackReference
+    @JsonManagedReference
     private Set<Food> food;
 
     @ManyToMany(mappedBy = "animals")
+    @JsonIgnore
     private Set<Employee> employees;
+
 
     public Animal(){
 

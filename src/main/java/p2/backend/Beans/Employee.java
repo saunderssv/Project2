@@ -34,7 +34,7 @@ public class Employee {
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "Employee_Animal", joinColumns = @JoinColumn(name = "employeeId", referencedColumnName = "employeeId"),
             inverseJoinColumns = @JoinColumn(name = "animalId", referencedColumnName = "animalId"))
-    @JsonBackReference
+    @JsonManagedReference
     private Set<Animal> animals;
 
     public Employee() {
