@@ -3,7 +3,10 @@ package p2.backend.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import p2.backend.Beans.Animal;
+import p2.backend.Beans.Employee;
 import p2.backend.Repository.AnimalRepository;
+
+import java.util.Set;
 
 @Service
 public class AnimalService {
@@ -23,6 +26,12 @@ public class AnimalService {
         return animalRepository.findAnimalByAnimalId(id);
     }
 
+    public Set<Animal> allAnimals(){
+        return animalRepository.findAnimalsByAnimalIdIsNotNull();
+    }
+    public Set<Animal> getAnimalsByEmployee(Employee id){
+        return animalRepository.findAnimalsByEmployees(id);
+    }
 
     public void saveAnimal (Animal save){
         animalRepository.save(save);
