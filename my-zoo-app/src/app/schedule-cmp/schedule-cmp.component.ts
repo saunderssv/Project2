@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Http, Response } from '@angular/http';
 
 @Component({
   selector: 'app-schedule-cmp',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ScheduleCmpComponent implements OnInit {
 
-
+  httpdata;
   schedule: {}[] = [
     {what:"Breakfast with Orangutan", where:"Kampung Sumatra", when:"8:00 AM - 9:30 AM"},
     {what:"Elephants Bathing", where:"Elephant Pool", when:"8:45 AM - 9:00 AM"},
@@ -19,9 +20,20 @@ export class ScheduleCmpComponent implements OnInit {
     {what:"Animal Encounter", where:"Elephant View Restaurant", when:"1:00 PM - 2:00 PM"}
     ];
 
-  constructor() { }
+  constructor(private http: Http) { }
 
   ngOnInit() {
+
+    this.http.get('https://zootropolis.herokuapp.com/Events/').
+    map (
+      (response) => response.text()
+    ).subscribe (
+      (data) => {this.displaydata(data)}
+    )
   }
+   displaydata(data){
+      this.httpdata = JSON.parse(data);
+     
+    }
 
 }
