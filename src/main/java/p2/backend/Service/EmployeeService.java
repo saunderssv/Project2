@@ -5,6 +5,8 @@ import org.springframework.stereotype.Service;
 import p2.backend.Beans.Employee;
 import p2.backend.Repository.EmployeeRepository;
 
+import javax.persistence.criteria.CriteriaBuilder;
+
 @Service
 public class EmployeeService {
 
@@ -17,6 +19,10 @@ public class EmployeeService {
 
     public Employee byUsername(String username){
         return employeeRepository.findByUsername(username);
+    }
+
+    public Employee getByID(Integer id){
+        return employeeRepository.findByEmployeeId(id);
     }
 
     public void saveEmployee(Employee save){

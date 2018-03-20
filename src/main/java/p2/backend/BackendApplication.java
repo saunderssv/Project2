@@ -51,13 +51,14 @@ public class BackendApplication implements CommandLineRunner {
         Animal asianOtter = new Animal("Asian Otter","Amblonyx cinereus","Smallest of all the Otter species.","Asian Otters are Cool",15,0);
 
         //Create all the Employee
-        Employee noop = new Employee("Navroop","Hundal","NoopDog","admin",0);
-        Employee spencer = new Employee("Spencer","Saunders","SSaunders","admin",0);
-        Employee brenton = new Employee("Brenton","Poke","Bpoke","admin",0);
-        Employee jose = new Employee("Jose", "Soria","Jsoria","admin",0);
-        Employee semeon = new Employee("Semeon","Barros","A R De","admin",0);
-        Employee terrell = new Employee("Terrell","Moses","Tmoses","admin",0);
-        Employee florina= new Employee("Florina","Singson","Fsingson","admin",0);
+        String password = bCryptPasswordEncoder().encode("admin");
+        Employee noop = new Employee("Navroop","Hundal","NoopDog",password,0);
+        Employee spencer = new Employee("Spencer","Saunders","SSaunders",password,0);
+        Employee brenton = new Employee("Brenton","Poke","Bpoke",password,0);
+        Employee jose = new Employee("Jose", "Soria","Jsoria",password,0);
+        Employee semeon = new Employee("Semeon","Barros","A R De",password,0);
+        Employee terrell = new Employee("Terrell","Moses","Tmoses",password,0);
+        Employee florina= new Employee("Florina","Singson","Fsingson",password,0);
 
         // Create all the Events
         Events one = new Events("Breakfast with Orangutan", "Kampung Sumatra","8:00 AM - 9:30 AM");

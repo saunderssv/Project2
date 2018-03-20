@@ -8,7 +8,7 @@ import p2.backend.Service.EventsService;
 
 @CrossOrigin
 @RestController
-@RequestMapping("/Event")
+@RequestMapping("/Events")
 public class EventsController {
 
     private EventsService eventsService;

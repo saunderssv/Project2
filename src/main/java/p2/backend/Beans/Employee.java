@@ -1,7 +1,6 @@
 package p2.backend.Beans;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
@@ -12,6 +11,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "Employee")
+@JsonIdentityInfo(generator=ObjectIdGenerators.PropertyGenerator.class, property="employeeId")
 public class Employee {
     @Id @GeneratedValue(strategy = GenerationType.AUTO) @Column(name = "employeeId")
     private int employeeId;
@@ -34,7 +34,7 @@ public class Employee {
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "Employee_Animal", joinColumns = @JoinColumn(name = "employeeId", referencedColumnName = "employeeId"),
             inverseJoinColumns = @JoinColumn(name = "animalId", referencedColumnName = "animalId"))
-    @JsonManagedReference
+    @JsonIgnore
     private Set<Animal> animals;
 
     public Employee() {
@@ -105,7 +105,7 @@ public class Employee {
         this.role = role;
     }
 
-    public Set<Animal> getAnimals() {
+    protected Set<Animal> getAnimals() {
         return animals;
     }
 
@@ -140,7 +140,6 @@ public class Employee {
         json.put("firstName",firstName)
                 .put("lastName",lastName)
                 .put("username",username)
-                .put("password",password)
                 .put("role",role)
                 .putPOJO("animals",animals);
         return json.toString();

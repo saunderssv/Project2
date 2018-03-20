@@ -8,8 +8,7 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
+
 import java.util.Objects;
 import java.util.Set;
 
@@ -124,7 +123,6 @@ public class Animal {
     public void setTracking(int tracking) {
         this.tracking = tracking;
     }
-
     public Set<Food> getFood() {
         return food;
     }
