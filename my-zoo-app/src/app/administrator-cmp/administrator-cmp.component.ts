@@ -18,7 +18,7 @@ export class AdministratorCmpComponent implements OnInit {
 
   ngOnInit() {
     //dummydata
-    this.zookeeper = new Zookeeper("ParkOwner1", "ParkOwner1", localStorage.getItem("Username"), localStorage.getItem("Password"), "OWNER");
+    this.zookeeper = new Zookeeper( localStorage.getItem("Username"), "Testing", "Testing2", localStorage.getItem("Role"));
     this.animals.push(new Animal(1, "M", "Bear", "Yogi", "Eats way too much", "anything" ));
     this.animals.push(new Animal(2, "M", "Orangutan", "Dunston", "mischevious", "bananas"));
     this.animals.push(new Animal(3, "F", "Wolf", "Akeelah", "Alpha", "red meat"));
