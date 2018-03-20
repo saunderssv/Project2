@@ -1,5 +1,6 @@
 package p2.backend.Beans;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
@@ -24,6 +25,7 @@ public class Food {
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "Food_Animal", joinColumns = @JoinColumn(name = "foodId", referencedColumnName = "foodId"),
             inverseJoinColumns = @JoinColumn(name = "animalId", referencedColumnName = "animalId"))
+    @JsonManagedReference
     private Set<Animal> animalFood;
 
     public Set<Animal> getAnimalFood() {

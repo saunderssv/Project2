@@ -1,5 +1,6 @@
 package p2.backend.Beans;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
@@ -33,6 +34,7 @@ public class Animal {
     private int tracking;
 
     @ManyToMany(mappedBy = "animalFood")
+    @JsonBackReference
     private Set<Food> food;
 
     @ManyToMany(mappedBy = "animals")

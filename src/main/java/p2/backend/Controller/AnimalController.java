@@ -19,13 +19,14 @@ public class AnimalController {
         this.animalService = animalService;
     }
 
-    @RequestMapping("/{name}")
-    public Animal byAnimal(@PathVariable(value = "name") String name){
+    @RequestMapping(method = RequestMethod.GET)
+    public Animal byAnimalName(@RequestParam(value = "name") String name){
         return animalService.byAnimal(name);
     }
 
-    @RequestMapping("/{id}")
-    public Animal byAnimal(@PathVariable(value = "id") int id){
+    @GetMapping("/{id}")
+    public Animal byAnimalID(@PathVariable Integer id){
+        System.out.println(id);
         return animalService.byAnimalID(id);
     }
 
