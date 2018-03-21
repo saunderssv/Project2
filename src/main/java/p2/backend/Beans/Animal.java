@@ -1,6 +1,7 @@
 package p2.backend.Beans;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
@@ -16,6 +17,9 @@ import java.util.Set;
 
 @Entity
 @Table(name = "animal")
+@JsonIdentityInfo(
+        generator = ObjectIdGenerators.PropertyGenerator.class,
+        property = "animalId")
 public class Animal {
     @Id @GeneratedValue(strategy = GenerationType.AUTO) @Column(name = "animalId")
     private int animalId;
@@ -42,9 +46,6 @@ public class Animal {
     private String notes;
 
     @ManyToMany(mappedBy = "animalFood")
-    @JsonIdentityInfo(
-            generator = ObjectIdGenerators.PropertyGenerator.class,
-            property = "foodId")
     private Set<Food> food;
 
 

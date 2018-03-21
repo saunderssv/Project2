@@ -189,7 +189,7 @@ public class BackendApplication implements CommandLineRunner {
         // food animal link
         Set<Food> food = new HashSet<>();
         food.add(rawFish);
-        food.add(rawMeat);
+        food.add(beef);
 
         lion.setFood(food);
 
@@ -197,11 +197,11 @@ public class BackendApplication implements CommandLineRunner {
         animals.add(lion);
 
         rawFish.setAnimalFood(animals);
-        rawMeat.setAnimalFood(animals);
+        beef.setAnimalFood(animals);
 
         animalRepository.save(lion);
         foodRepository.save(rawFish);
-        foodRepository.save(rawMeat);
+        foodRepository.save(beef);
 
         // Animal to Employee
         Set<Animal> animalsToEmployee = new HashSet<>();

@@ -14,6 +14,9 @@ import java.util.Set;
 
 @Entity
 @Table(name = "Food")
+@JsonIdentityInfo(
+        generator = ObjectIdGenerators.PropertyGenerator.class,
+        property = "foodId")
 public class Food {
 
     @Id @GeneratedValue(strategy = GenerationType.AUTO) @Column(name = "foodId")
@@ -34,9 +37,6 @@ public class Food {
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "Food_Animal", joinColumns = @JoinColumn(name = "foodId", referencedColumnName = "foodId"),
             inverseJoinColumns = @JoinColumn(name = "animalId", referencedColumnName = "animalId"))
-    @JsonIdentityInfo(
-            generator = ObjectIdGenerators.PropertyGenerator.class,
-            property = "animalId")
     private Set<Animal> animalFood;
 
     public Food(){
