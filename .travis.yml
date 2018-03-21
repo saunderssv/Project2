@@ -1,4 +1,7 @@
 language: java
+before_install:
+	sudo snap install heroku --classic
+	mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 deploy:
   provider: heroku
   api_key:
