@@ -22,6 +22,9 @@ import { LoginCmpComponent } from './login-cmp/login-cmp.component';
 import { LoginService } from './services/login.service';
 import { PieCmpComponent } from './pie-cmp/pie-cmp.component';
 import { BarCmpComponent } from './bar-cmp/bar-cmp.component';
+import { 
+  AuthGaurdService as AuthGuard 
+} from './auth-gaurd.service';
 
 export const appRoutes: Routes = [
   {path: 'app-administrator-cmp', component: AdministratorCmpComponent},

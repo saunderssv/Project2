@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router} from '@angular/router';
 import { Http, Response } from '@angular/http';
+import { JwtHelperService } from '@auth0/angular-jwt';
 import * as jwtDecode from "jwt-decode";
+import { HttpClientModule } from '@angular/common/http';
 import 'rxjs/add/operator/map';
 
 
@@ -12,6 +14,7 @@ import 'rxjs/add/operator/map';
 })
 export class LoginCmpComponent implements OnInit {
 
+  step;
   username: string;
   password: string;
 
@@ -24,6 +27,7 @@ export class LoginCmpComponent implements OnInit {
 
 
   onClickSubmit(event){
+    this.step = 'clicked'
     var body = { "username":this.username,"password":this.password}
 
     this.http.post('https://zootropolis.herokuapp.com/users/signin',body).
@@ -36,6 +40,7 @@ export class LoginCmpComponent implements OnInit {
   }
 
   submitData(data){
+    
     var token = data;
     var data2 = jwtDecode(token);
     console.log(data2);
