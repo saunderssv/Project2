@@ -26,14 +26,15 @@ public class AnimalController {
     }
 
     @GetMapping("/{name}")
-    public Animal byAnimalName(@PathVariable String name){
-        return animalService.byAnimal(name);
+    public @ResponseBody ResponseEntity<Animal> byAnimalName(@PathVariable String name){
+        Animal animal = animalService.byAnimal(name);
+        return new ResponseEntity<Animal>(animal,HttpStatus.FOUND);
     }
 
     @GetMapping("/{id}")
-    public Animal byAnimalID(@PathVariable Integer id){
-        System.out.println(id);
-        return animalService.byAnimalID(id);
+    public @ResponseBody ResponseEntity<Animal> byAnimalID(@PathVariable Integer id){
+        Animal animal = animalService.byAnimalID(id);
+        return new ResponseEntity<Animal>(animal,HttpStatus.FOUND);
     }
     @PostMapping("/empAnimals")
     public @ResponseBody ResponseEntity<Set<Animal>> animalsOfEmployees(@RequestBody Employee emp){
