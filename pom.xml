@@ -54,13 +54,32 @@
 			<artifactId>spring-boot-starter-security</artifactId>
 			<version>2.0.0.RELEASE</version>
 		</dependency>
-	</dependencies>
+    </dependencies>
 
 	<build>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>appassembler-maven-plugin</artifactId>
+				<version>1.1.1</version>
+				<configuration>
+					<assembleDirectory>target</assembleDirectory>
+					<programs>
+						<program>
+							<mainClass>p2.backend.BackendApplication</mainClass>
+							<name>zootroplois</name>
+						</program>
+					</programs>
+				</configuration>
+				<executions>
+					<execution>
+						<phase>package</phase><goals><goal>assemble</goal></goals>
+					</execution>
+				</executions>
 			</plugin>
 			<plugin>
 				<groupId>com.heroku.sdk</groupId>
