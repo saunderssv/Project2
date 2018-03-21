@@ -27,6 +27,7 @@ import { AuthGaurdService } from './auth-gaurd.service';
 import { AuthService } from './auth.service';
 
 export const appRoutes: Routes = [
+  { path: '', redirectTo: '/app-home-cmp', pathMatch: 'full' },
   {path: 'app-administrator-cmp', component: AdministratorCmpComponent, canActivate: [AuthGaurdService]},
   {path: 'app-login-cmp', component: LoginCmpComponent},
   {path: 'app-home-cmp', component: HomeCmpComponent },

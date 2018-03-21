@@ -5,6 +5,7 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 import * as jwtDecode from "jwt-decode";
 import { HttpClientModule } from '@angular/common/http';
 import 'rxjs/add/operator/map';
+import { error } from 'protractor';
 
 
 @Component({
@@ -14,7 +15,7 @@ import 'rxjs/add/operator/map';
 })
 export class LoginCmpComponent implements OnInit {
 
-  step;
+  step = "start";
   username: string;
   password: string;
 
@@ -27,14 +28,15 @@ export class LoginCmpComponent implements OnInit {
 
 
   onClickSubmit(event){
-    this.step = 'clicked'
+   this.step = 'Good'
     var body = { "username":this.username,"password":this.password}
 
     this.http.post('https://zootropolis.herokuapp.com/users/signin',body).
     map (
       (response) => response.text()
     ).subscribe (
-      (data) => {this.submitData(data)}
+      (data) => {this.submitData(data)},
+      (error) =>{this.step = 'Wrong'}
     )
    
   }
@@ -43,7 +45,6 @@ export class LoginCmpComponent implements OnInit {
     
     var token = data;
     var data2 = jwtDecode(token);
-    console.log(data2);
     localStorage.setItem("token",data);
     localStorage.setItem("Username",this.username);
     localStorage.setItem("Role",data2['aud']);
