@@ -1,14 +1,16 @@
 package p2.backend.Beans;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
-import com.fasterxml.jackson.databind.ser.std.StdSerializer;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import javax.persistence.*;
-
 import java.util.Objects;
 import java.util.Set;
 
@@ -40,12 +42,11 @@ public class Animal {
     private String notes;
 
     @ManyToMany(mappedBy = "animalFood")
-    @JsonManagedReference
+    @JsonIdentityInfo(
+            generator = ObjectIdGenerators.PropertyGenerator.class,
+            property = "foodId")
     private Set<Food> food;
 
-    @ManyToMany(mappedBy = "animals")
-    @JsonIgnore
-    private Set<Employee> employees;
 
     public Animal(){
 
@@ -61,7 +62,7 @@ public class Animal {
         this.notes = notes;
     }
 
-    public Animal(String animalName, String scientificName, String funFact, String summary, int numOfAnimal, int tracking, String notes, Set<Food> food, Set<Employee> employees) {
+    public Animal(String animalName, String scientificName, String funFact, String summary, int numOfAnimal, int tracking, String notes, Set<Food> food) {
         this.animalName = animalName;
         this.scientificName = scientificName;
         this.funFact = funFact;
@@ -70,7 +71,6 @@ public class Animal {
         this.tracking = tracking;
         this.notes = notes;
         this.food = food;
-        this.employees = employees;
     }
 
     public int getAnimalId() {
@@ -128,21 +128,6 @@ public class Animal {
     public void setTracking(int tracking) {
         this.tracking = tracking;
     }
-    public Set<Food> getFood() {
-        return food;
-    }
-
-    public void setFood(Set<Food> food) {
-        this.food = food;
-    }
-
-    public Set<Employee> getEmployees() {
-        return employees;
-    }
-
-    public void setEmployees(Set<Employee> employees) {
-        this.employees = employees;
-    }
 
     public String getNotes() {
         return notes;
@@ -150,6 +135,14 @@ public class Animal {
 
     public void setNotes(String notes) {
         this.notes = notes;
+    }
+
+    public Set<Food> getFood() {
+        return food;
+    }
+
+    public void setFood(Set<Food> food) {
+        this.food = food;
     }
 
     @Override
@@ -164,8 +157,8 @@ public class Animal {
                 Objects.equals(scientificName, animal.scientificName) &&
                 Objects.equals(funFact, animal.funFact) &&
                 Objects.equals(summary, animal.summary) &&
-                Objects.equals(food, animal.food) &&
-                Objects.equals(employees, animal.employees);
+                Objects.equals(notes, animal.notes) &&
+                Objects.equals(food, animal.food);
     }
 
     @Override
@@ -176,17 +169,30 @@ public class Animal {
 
     @Override
     public String toString() {
-        ObjectMapper mapper = new ObjectMapper();
-        ObjectNode json = mapper.createObjectNode();
-        json.put("animalName",animalName)
-                .put("scientificName",scientificName)
-                .put("funFact",funFact)
-                .put("summary",summary)
-                .put("numOfAnimal",numOfAnimal)
-                .put("tracking",tracking)
-                .put("notes",notes)
-                .putPOJO("food",food)
-                .putPOJO("employees",employees);
+        JSONObject json = new JSONObject();
+        try {
+            json.put("animalName",this.animalName)
+                    .put("scientificName",scientificName)
+                    .put("funFact",funFact)
+                    .put("summary",summary)
+                    .put("numOfAnimal",numOfAnimal)
+                    .put("tracking",tracking)
+                    .put("notes",notes);
+//                    JSONArray foodArray = new JSONArray();
+//                    this.food.forEach((Food foodN) -> {
+//                        JSONObject food = new JSONObject();
+//                        try {
+//                            food.put("foodId",foodN.getFoodId());
+//                            food.put("foodName",foodN.getFoodName());
+//                        } catch (JSONException e) {
+//                            e.printStackTrace();
+//                        }
+//                        foodArray.put(foodN);
+//                    });
+//                    json.put("Food",foodArray);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
         return json.toString();
     }
 }

@@ -32,16 +32,7 @@ public class AnimalController {
 
     @GetMapping("/{id}")
     public Animal byAnimalID(@PathVariable Integer id){
-        System.out.println(id);
         return animalService.byAnimalID(id);
-    }
-    @PostMapping("/empAnimals")
-    public @ResponseBody ResponseEntity<Set<Animal>> animalsOfEmployees(@RequestBody Employee emp){
-        Set<Animal> zoo = animalService.getAnimalsByEmployee(emp);
-		/*ObjectMapper mapper = new ObjectMapper();
-		Animal[] anArr = (Animal[]) zoo.toArray();
-		*/
-        return new ResponseEntity<Set<Animal>>(zoo,HttpStatus.OK);
     }
 
     @GetMapping("/")

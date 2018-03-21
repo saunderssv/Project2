@@ -141,7 +141,7 @@ public class Employee {
                 .put("lastName",lastName)
                 .put("username",username)
                 .put("role",role)
-                .putPOJO("animals",animals);
+                .put("animals",animals.toString());
         return json.toString();
 
     }

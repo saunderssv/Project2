@@ -205,20 +205,14 @@ public class BackendApplication implements CommandLineRunner {
 
         // Animal to Employee
         Set<Animal> animalsToEmployee = new HashSet<>();
-        Set<Employee> employeetoAnimals = new HashSet<>();
 
         animalsToEmployee.add(giantPanda);
-        employeetoAnimals.add(jose);
-        employeetoAnimals.add(florina);
 
         jose.setAnimals(animalsToEmployee);
         florina.setAnimals(animalsToEmployee);
 
-        giantPanda.setEmployees(employeetoAnimals);
-
         employeeRepository.save(jose);
         employeeRepository.save(florina);
-        animalRepository.save(giantPanda);
     }
 }
 
