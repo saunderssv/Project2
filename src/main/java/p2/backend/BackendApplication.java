@@ -9,7 +9,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.transaction.annotation.Transactional;
 import p2.backend.Beans.*;
 import p2.backend.Repository.*;
-
 import java.util.HashSet;
 import java.util.Set;
 
