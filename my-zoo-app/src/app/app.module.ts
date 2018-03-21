@@ -1,8 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
-import { HttpModule } from '@angular/http';
-import { RouterModule, Routes} from '@angular/router';
+import { RouterModule, Routes, CanActivate} from '@angular/router';
+import { HttpModule } from '@angular/http'; 
 import { HttpClientModule } from '@angular/common/http';
 import { AgmCoreModule } from '@agm/core';
 import { AgmSnazzyInfoWindowModule } from '@agm/snazzy-info-window';
@@ -10,9 +10,6 @@ import * as FusionCharts from 'fusioncharts';
 import * as Charts from 'fusioncharts/fusioncharts.charts';
 import * as FintTheme from 'fusioncharts/themes/fusioncharts.theme.fint';
 import { FusionChartsModule } from 'angular4-fusioncharts';
-import {  
-  AuthguardService as AuthGuard
-} from './authguard.service';
 
 import { AdministratorCmpComponent } from './administrator-cmp/administrator-cmp.component';
 import { AppComponent } from './app.component';
@@ -27,7 +24,7 @@ import { PieCmpComponent } from './pie-cmp/pie-cmp.component';
 import { BarCmpComponent } from './bar-cmp/bar-cmp.component';
 
 export const appRoutes: Routes = [
-  {path: 'app-administrator-cmp', component: AdministratorCmpComponent}, //canActivate: [AuthGuard]},
+  {path: 'app-administrator-cmp', component: AdministratorCmpComponent},
   {path: 'app-login-cmp', component: LoginCmpComponent},
   {path: 'app-home-cmp', component: HomeCmpComponent },
   {path: 'app-schedule-cmp', component: ScheduleCmpComponent },
@@ -55,9 +52,9 @@ FusionChartsModule.fcRoot(FusionCharts, Charts, FintTheme);
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     FormsModule,
     FusionChartsModule,
-    HttpModule,
     RouterModule.forRoot(appRoutes),
     HttpClientModule,
     AgmCoreModule.forRoot({
