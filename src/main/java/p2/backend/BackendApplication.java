@@ -15,7 +15,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @SpringBootApplication
-@PropertySource(value = "application.properties")
+@PropertySource(value = "src/main/resources/application.properties")
 public class BackendApplication implements CommandLineRunner {
 	@Bean
 	public BCryptPasswordEncoder bCryptPasswordEncoder() {
