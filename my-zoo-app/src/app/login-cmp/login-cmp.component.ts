@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router} from '@angular/router';
 import { Http, Response } from '@angular/http';
-import 'rxjs/add/operator/map';
 import * as jwtDecode from "jwt-decode";
+import 'rxjs/add/operator/map';
+
 
 @Component({
   selector: 'app-login-cmp',

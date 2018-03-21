@@ -7,6 +7,7 @@ import { HttpHeaders } from '@angular/common/http';
 
 
 
+
 @Component({
   selector: 'app-administrator-cmp',
   templateUrl: './administrator-cmp.component.html',
@@ -23,12 +24,11 @@ export class AdministratorCmpComponent implements OnInit {
   constructor(private loginService: LoginService,private http: Http) { 
     const headers = new Headers();
     // headers.append('Content-Type', 'application/json');
-    headers.append('Authorization', localStorage.getItem('token'));
+    headers.append('Authorization', 'Bearer'+ ' '+ localStorage.getItem('token'));
 
    const options = new RequestOptions({headers: headers});
     var body = { "employeeId": 7}
-    this.http.post('https://zootropolis.herokuapp.com/users/info',body, options).
-    map (
+    this.http.post('https://zootropolis.herokuapp.com/users/info',body, options).map (
       (response) => response.text()
     ).subscribe (
       (data) => {console.log(data)}
