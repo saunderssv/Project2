@@ -12,17 +12,17 @@
       <li *ngIf="zookeeper.title=='manager'" class="nav-item">
         <a class="nav-link" id="stats-tab" data-toggle="pill" href="#stats" role="tab" aria-controls="stats" aria-selected="false">Statistics</a>
       </li>
-    <button class="btn btn-success ml-auto">Log Out</button>
+    <button class="btn btn-success ml-auto" (click)="signOut($event)">Log Out</button>
   </ul>
   
   <div class="tab-content" id="pills-tabContent">
-      <div class="tab-pane fade" id="home" role="tabpanel" aria-labelledby="home-tab">
+      <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
           <h3>Welcome {{zookeeper.firstname}}</h3>
           <p><span><strong>Role: </strong></span>{{zookeeper.title}}</p>
           <p><span><strong>Name: </strong></span>{{zookeeper.firstname}} {{zookeeper.lastname}}</p>
           <p><span><strong>Username: </strong></span>{{zookeeper.username}}</p>
       </div>
-      <div class="tab-pane fade show active" id="animal" role="tabpanel" aria-labelledby="animal-tab">
+      <div class="tab-pane fade " id="animal" role="tabpanel" aria-labelledby="animal-tab">
           <h3>Animal Information</h3>
           <table class="data-table table table-hover">
               <thead>
