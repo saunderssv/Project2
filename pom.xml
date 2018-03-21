@@ -62,35 +62,16 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>appassembler-maven-plugin</artifactId>
-				<version>1.1.1</version>
-				<configuration>
-					<assembleDirectory>target</assembleDirectory>
-					<programs>
-						<program>
-							<mainClass>p2.backend.BackendApplication</mainClass>
-							<name>zootroplois</name>
-						</program>
-					</programs>
-				</configuration>
-				<executions>
-					<execution>
-						<phase>package</phase><goals><goal>assemble</goal></goals>
-					</execution>
-				</executions>
-			</plugin>
-			<plugin>
-				<groupId>com.heroku.sdk</groupId>
-				<artifactId>heroku-maven-plugin</artifactId>
-				<version>2.0.3</version>
-				<configuration>
-					<processTypes>
-						<web>java $JAVA_OPTS -Dserver.port=$PORT -jar target/backend-0.0.1-SNAPSHOT.jar -cp target/classes:target/dependency/*</web>
-					</processTypes>
-				</configuration>
-			</plugin>
+			<!--<plugin>-->
+				<!--<groupId>com.heroku.sdk</groupId>-->
+				<!--<artifactId>heroku-maven-plugin</artifactId>-->
+				<!--<version>2.0.3</version>-->
+				<!--<configuration>-->
+					<!--<processTypes>-->
+						<!--<web>java $JAVA_OPTS -Dserver.port=$PORT -jar target/backend-0.0.1-SNAPSHOT.jar -cp target/classes:target/dependency/*</web>-->
+					<!--</processTypes>-->
+				<!--</configuration>-->
+			<!--</plugin>-->
 		</plugins>
 	</build>
 
