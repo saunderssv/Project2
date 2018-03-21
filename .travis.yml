@@ -1,8 +1,8 @@
 language: java
-before_install:
-	sudo snap install heroku --classic
-	mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+jdk:
+ - oraclejdk8
 deploy:
   provider: heroku
-  api_key:
-    secure: $API_KEY
+  api-key:
+   secure: $API_KEY
+  app: zootropolis
