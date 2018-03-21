@@ -40,13 +40,14 @@ export class AdministratorCmpComponent implements OnInit {
   setUserInfo(data){
     var data2 = JSON.parse(data);
     localStorage.setItem("Firstname", data2["firstName"]);
-    localStorage.setItem("Lastname",data2["lastName"])
+    localStorage.setItem("Lastname",data2["lastName"])    
+   
+
   }
 
   ngOnInit() {
-    
+     this.zookeeper = new Zookeeper( localStorage.getItem("Username"), localStorage.getItem("Firstname"), localStorage.getItem("Lastname"), localStorage.getItem("Role"));
     //dummydata
-    this.zookeeper = new Zookeeper( localStorage.getItem("Username"), localStorage.getItem("Firstname"), localStorage.getItem("Lastname"), localStorage.getItem("Role"));
     this.animals.push(new Animal(1, "M", "Bear", "Yogi", "Eats way too much", "anything" ));
     this.animals.push(new Animal(2, "M", "Orangutan", "Dunston", "mischevious", "bananas"));
     this.animals.push(new Animal(3, "F", "Wolf", "Akeelah", "Alpha", "red meat"));
@@ -57,6 +58,8 @@ export class AdministratorCmpComponent implements OnInit {
   }
 
   signOut(event){
+    alert("Successfully logged out")
+    localStorage.removeItem("token")
     this.router.navigate(['app-login-cmp'])
   }
 }

@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { Injectable } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes, CanActivate} from '@angular/router';
@@ -22,12 +23,11 @@ import { LoginCmpComponent } from './login-cmp/login-cmp.component';
 import { LoginService } from './services/login.service';
 import { PieCmpComponent } from './pie-cmp/pie-cmp.component';
 import { BarCmpComponent } from './bar-cmp/bar-cmp.component';
-import { 
-  AuthGaurdService as AuthGuard 
-} from './auth-gaurd.service';
+import { AuthGaurdService } from './auth-gaurd.service';
+import { AuthService } from './auth.service';
 
 export const appRoutes: Routes = [
-  {path: 'app-administrator-cmp', component: AdministratorCmpComponent},
+  {path: 'app-administrator-cmp', component: AdministratorCmpComponent, canActivate: [AuthGaurdService]},
   {path: 'app-login-cmp', component: LoginCmpComponent},
   {path: 'app-home-cmp', component: HomeCmpComponent },
   {path: 'app-schedule-cmp', component: ScheduleCmpComponent },
@@ -65,7 +65,7 @@ FusionChartsModule.fcRoot(FusionCharts, Charts, FintTheme);
     }),
     AgmSnazzyInfoWindowModule
   ],
-  providers: [LoginService],
+  providers: [AuthService, AuthGaurdService, LoginService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
