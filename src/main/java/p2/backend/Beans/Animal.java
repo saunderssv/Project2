@@ -24,16 +24,20 @@ public class Animal {
     @Column(name = "scientificName")
     private String scientificName;
 
-    @Column(name = "funFact")
+    @Column(name = "funFact",columnDefinition = "text")
     private String funFact;
 
-    @Column(name = "summary")
+    @Column(name = "summary",columnDefinition = "text")
     private String summary;
 
     @Column(name = "numOfAnimal")
     private int numOfAnimal;
 
+    @Column(name = "tracking")
     private int tracking;
+
+    @Column(name = "notes",columnDefinition = "text")
+    private String notes;
 
     @ManyToMany(mappedBy = "animalFood")
     @JsonManagedReference
@@ -43,29 +47,30 @@ public class Animal {
     @JsonIgnore
     private Set<Employee> employees;
 
-
     public Animal(){
 
     }
 
-    public Animal(String animalName, String scientificName, String funFact, String summary, int numOfAnimal, int tracking, Set<Food> food, Set<Employee> employees) {
+    public Animal(String animalName, String scientificName, String funFact, String summary, int numOfAnimal, int tracking, String notes) {
         this.animalName = animalName;
         this.scientificName = scientificName;
         this.funFact = funFact;
         this.summary = summary;
         this.numOfAnimal = numOfAnimal;
         this.tracking = tracking;
-        this.food = food;
-        this.employees = employees;
+        this.notes = notes;
     }
 
-    public Animal(String animalName, String scientificName, String funFact, String summary, int numOfAnimal, int tracking) {
+    public Animal(String animalName, String scientificName, String funFact, String summary, int numOfAnimal, int tracking, String notes, Set<Food> food, Set<Employee> employees) {
         this.animalName = animalName;
         this.scientificName = scientificName;
         this.funFact = funFact;
         this.summary = summary;
         this.numOfAnimal = numOfAnimal;
         this.tracking = tracking;
+        this.notes = notes;
+        this.food = food;
+        this.employees = employees;
     }
 
     public int getAnimalId() {
@@ -139,6 +144,14 @@ public class Animal {
         this.employees = employees;
     }
 
+    public String getNotes() {
+        return notes;
+    }
+
+    public void setNotes(String notes) {
+        this.notes = notes;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -158,7 +171,7 @@ public class Animal {
     @Override
     public int hashCode() {
 
-        return Objects.hash(animalId, animalName, scientificName, funFact, summary, numOfAnimal, tracking);
+        return Objects.hash(animalId, animalName, scientificName, funFact, summary, numOfAnimal, tracking, notes);
     }
 
     @Override
@@ -171,6 +184,7 @@ public class Animal {
                 .put("summary",summary)
                 .put("numOfAnimal",numOfAnimal)
                 .put("tracking",tracking)
+                .put("notes",notes)
                 .putPOJO("food",food)
                 .putPOJO("employees",employees);
         return json.toString();
