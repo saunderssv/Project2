@@ -37,6 +37,7 @@ public class Food {
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "Food_Animal", joinColumns = @JoinColumn(name = "foodId", referencedColumnName = "foodId"),
             inverseJoinColumns = @JoinColumn(name = "animalId", referencedColumnName = "animalId"))
+    @JsonManagedReference
     private Set<Animal> animalFood;
 
     public Food(){
@@ -125,18 +126,18 @@ public class Food {
                     .put("amount",amount)
                     .put("nextDelivery",nextDelivery)
                     .put("notes",notes);
-//            JSONArray foodArray = new JSONArray();
-//            this.animalFood.forEach(animal -> {
-//                JSONObject animalFood = new JSONObject();
-//                try {
-//                    animalFood.put("animalId",animal.getAnimalId());
-//                    animalFood.put("animalName",animal.getAnimalName());
-//                } catch (JSONException e) {
-//                    e.printStackTrace();
-//                }
-//                foodArray.put(animalFood);
-//            });
-//            json.put("Animal",foodArray);
+            JSONArray foodArray = new JSONArray();
+            this.animalFood.forEach(animal -> {
+                JSONObject animalFood = new JSONObject();
+                try {
+                    animalFood.put("animalId",animal.getAnimalId());
+                    animalFood.put("animalName",animal.getAnimalName());
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                foodArray.put(animalFood);
+            });
+            json.put("Animal",foodArray);
         } catch (JSONException e) {
             e.printStackTrace();
         }
