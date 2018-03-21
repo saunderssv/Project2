@@ -25,7 +25,6 @@ export class LoginCmpComponent implements OnInit {
   onClickSubmit(event){
     var body = { "username":this.username,"password":this.password}
 
-    console.log(body)
     this.http.post('https://zootropolis.herokuapp.com/users/signin',body).
     map (
       (response) => response.text()
