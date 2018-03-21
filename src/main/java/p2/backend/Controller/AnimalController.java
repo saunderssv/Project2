@@ -25,8 +25,8 @@ public class AnimalController {
         this.animalService = animalService;
     }
 
-    @RequestMapping(method = RequestMethod.GET)
-    public Animal byAnimalName(@RequestParam(value = "name") String name){
+    @GetMapping("/{name}")
+    public Animal byAnimalName(@PathVariable String name){
         return animalService.byAnimal(name);
     }
 
