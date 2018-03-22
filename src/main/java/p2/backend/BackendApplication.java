@@ -10,19 +10,21 @@ import org.springframework.transaction.annotation.Transactional;
 import p2.backend.Beans.*;
 import p2.backend.Repository.*;
 
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
 
 @SpringBootApplication
 public class BackendApplication implements CommandLineRunner {
-	@Bean
-	public BCryptPasswordEncoder bCryptPasswordEncoder() {
-		return new BCryptPasswordEncoder(15);
-	}
 
-	public static void main(String[] args) {
-		SpringApplication.run(BackendApplication.class, args);
-	}
+    @Bean
+    public BCryptPasswordEncoder bCryptPasswordEncoder() {
+        return new BCryptPasswordEncoder(15);
+    }
+
+    public static void main(String[] args) {
+        SpringApplication.run(BackendApplication.class, args);
+    }
 
     @Autowired
     AnimalRepository animalRepository;
@@ -64,8 +66,6 @@ public class BackendApplication implements CommandLineRunner {
         Animal grevyZebra = new Animal("Grevy's Zebra","Equus grevyi","Foals are born with brown and white striping, with the brown stripes darkening as they grow older.","The Grévy's zebra, also known as the imperial zebra, is the largest living wild equid and the largest and most threatened of the three species of zebra, the other two being the plains zebra and the mountain zebra. Named after Jules Grévy, it is the sole extant member of the subgenus Dolichohippus. The Grévy's zebra is found in Kenya and Ethiopia. Compared with other zebras, it is tall, has large ears, and its stripes are narrower.",4,0,null);
         Animal komodoDragon = new Animal("Komodo Dragon","Varanus komodoensis","Komodo dragons have a venomous bite.","As a result of their size, these lizards dominate the ecosystems in which they live. Komodo dragons hunt and ambush prey including invertebrates, birds, and mammals. It has been claimed that they have a venomous bite; there are two glands in the lower jaw which secrete several toxic proteins. The biological significance of these proteins is disputed, but the glands have been shown to secrete an anticoagulant. Komodo dragon group behaviour in hunting is exceptional in the reptile world. The diet of big Komodo dragons mainly consists of Timor deer, though they also eat considerable amounts of carrion. Komodo dragons also occasionally attack humans.",4,0,null);
         Animal grayMouseLemur = new Animal("Gray mouse lemur","Microcebus murinus","It is very active, and though it forages alone, groups of males and females form sleeping groups and share tree holes during the day.","The gray mouse lemur (Microcebus murinus), grey mouse lemur or lesser mouse lemur, is a small lemur, a type of strepsirrhine primate, found only on the island of Madagascar. Weighing 58 to 67 grams (2.0 to 2.4 oz), it is the largest of the mouse lemurs (genus Microcebus), a group that includes the smallest primates in the world.",2,0,null);
-
-
 
         //Create all the Employee
         String password = bCryptPasswordEncoder().encode("admin");
@@ -125,8 +125,8 @@ public class BackendApplication implements CommandLineRunner {
         Location lKomodoDragon = new Location(38.929676, -77.047403,komodoDragon);
         Location lGrayMouseLemur = new Location(38.930637, -77.048754,grayMouseLemur);
 
-
         //save them all
+
         animalRepository.save(americanAlligator);
         animalRepository.save(americanBison);
         animalRepository.save(asianElephant);
@@ -147,6 +147,27 @@ public class BackendApplication implements CommandLineRunner {
         animalRepository.save(grevyZebra);
         animalRepository.save(komodoDragon);
         animalRepository.save(grayMouseLemur);
+
+        locationRepository.save(lAmericanAlligator);
+        locationRepository.save(lAmericanBison);
+        locationRepository.save(lAsianElephant);
+        locationRepository.save(lAsianOtter);
+        locationRepository.save(lBaldEagle);
+        locationRepository.save(lBobcat);
+        locationRepository.save(lCarpetPython);
+        locationRepository.save(lCaliforniaSeaLion);
+        locationRepository.save(lCheetah);
+        locationRepository.save(lGiantPanda);
+        locationRepository.save(lLion);
+        locationRepository.save(lManedWolf);
+        locationRepository.save(lOrangutan);
+        locationRepository.save(lRedPanda);
+        locationRepository.save(lTiger);
+        locationRepository.save(lWesternLowlandGorilla);
+        locationRepository.save(lGrayWolf);
+        locationRepository.save(lGrevyZebra);
+        locationRepository.save(lKomodoDragon);
+        locationRepository.save(lGrayMouseLemur);
 
         employeeRepository.save(noop);
         employeeRepository.save(spencer);
@@ -180,59 +201,306 @@ public class BackendApplication implements CommandLineRunner {
         foodRepository.save(carrots);
 
 
-        locationRepository.save(lAmericanAlligator);
-        locationRepository.save(lAmericanBison);
-        locationRepository.save(lAsianElephant);
-        locationRepository.save(lAsianOtter);
-        locationRepository.save(lBaldEagle);
-        locationRepository.save(lBobcat);
-        locationRepository.save(lCarpetPython);
-        locationRepository.save(lCaliforniaSeaLion);
-        locationRepository.save(lCheetah);
-        locationRepository.save(lGiantPanda);
-        locationRepository.save(lLion);
-        locationRepository.save(lManedWolf);
-        locationRepository.save(lOrangutan);
-        locationRepository.save(lRedPanda);
-        locationRepository.save(lTiger);
-        locationRepository.save(lWesternLowlandGorilla);
-        locationRepository.save(lGrayWolf);
-        locationRepository.save(lGrevyZebra);
-        locationRepository.save(lKomodoDragon);
-        locationRepository.save(lGrayMouseLemur);
-
         //Create links between everything
-        // food animal link
-        Set<Food> food = new HashSet<>();
-        food.add(rawFish);
-        food.add(beef);
+        // food-animal link
+        Set<Food> foodAmericanAlligator = new HashSet<>();
+        Set<Food> foodAmericanBison = new HashSet<>();
+        Set<Food> foodAsianElephant = new HashSet<>();
+        Set<Food> foodAsianOtter = new HashSet<>();
+        Set<Food> foodBaldEagle = new HashSet<>();
+        Set<Food> foodBobcat = new HashSet<>();
+        Set<Food> foodCarpetPython = new HashSet<>();
+        Set<Food> foodCaliforniaSeaLion = new HashSet<>();
+        Set<Food> foodCheetah = new HashSet<>();
+        Set<Food> foodGiantPanda = new HashSet<>();
+        Set<Food> foodLion = new HashSet<>();
+        Set<Food> foodManedWolf = new HashSet<>();
+        Set<Food> foodOrangutan = new HashSet<>();
+        Set<Food> foodRedPanda = new HashSet<>();
+        Set<Food> foodTiger = new HashSet<>();
+        Set<Food> foodWesternLowlandGorilla = new HashSet<>();
+        Set<Food> foodGrayWolf = new HashSet<>();
+        Set<Food> foodGrevyZebra = new HashSet<>();
+        Set<Food> foodKomodoDragon = new HashSet<>();
+        Set<Food> foodGrayMouseLemur = new HashSet<>();
 
-        lion.setFood(food);
-        cheetah.setFood(food);
+        Set<Animal> animalBamboo = new HashSet<>();
+        Set<Animal> animalBeef = new HashSet<>();
+        Set<Animal> animalEggs = new HashSet<>();
+        Set<Animal> animalFruits = new HashSet<>();
+        Set<Animal> animalHay = new HashSet<>();
+        Set<Animal> animalInsects = new HashSet<>();
+        Set<Animal> animalRodents = new HashSet<>();
+        Set<Animal> animalSeeds = new HashSet<>();
+        Set<Animal> animalTreeBark = new HashSet<>();
+        Set<Animal> animalVegetables = new HashSet<>();
+        Set<Animal> animalRawFish = new HashSet<>();
+        Set<Animal> animalRawMeat = new HashSet<>();
+        Set<Animal> animalCarrots = new HashSet<>();
 
-        Set<Animal> animals = new HashSet<>();
-        animals.add(lion);
-        animals.add(cheetah);
+        // Select each animal for each food
+        animalBamboo.add(giantPanda);
+        animalBamboo.add(redPanda);
+        bamboo.setAnimalFood(animalBamboo);
 
-        rawFish.setAnimalFood(animals);
-        beef.setAnimalFood(animals);
+        animalBeef.add(americanAlligator);
+        animalBeef.add(bobcat);
+        animalBeef.add(carpetPython);
+        animalBeef.add(cheetah);
+        animalBeef.add(lion);
+        animalBeef.add(manedWolf);
+        animalBeef.add(tiger);
+        animalBeef.add(grayWolf);
+        animalBeef.add(komodoDragon);
+        beef.setAnimalFood(animalBeef);
 
-        animalRepository.save(lion);
+        animalEggs.add(baldEagle);
+        eggs.setAnimalFood(animalEggs);
+
+        animalFruits.add(americanBison);
+        animalFruits.add(asianElephant);
+        animalFruits.add(asianOtter);
+        animalFruits.add(baldEagle);
+        animalFruits.add(orangutan);
+        animalFruits.add(westernLowlandGorilla);
+        fruits.setAnimalFood(animalFruits);
+
+        animalHay.add(americanBison);
+        animalHay.add(giantPanda);
+        animalHay.add(grevyZebra);
+        animalHay.add(grayMouseLemur);
+        hay.setAnimalFood(animalHay);
+
+        animalInsects.add(asianOtter);
+        animalInsects.add(orangutan);
+        animalInsects.add(westernLowlandGorilla);
+        insects.setAnimalFood(animalInsects);
+
+        animalRodents.add(americanAlligator);
+        animalRodents.add(baldEagle);
+        animalRodents.add(bobcat);
+        animalRodents.add(carpetPython);
+        rodents.setAnimalFood(animalRodents);
+
+        animalSeeds.add(americanBison);
+        animalSeeds.add(redPanda);
+        seeds.setAnimalFood(animalSeeds);
+
+        animalTreeBark.add(giantPanda);
+        animalTreeBark.add(redPanda);
+        treeBark.setAnimalFood(animalTreeBark);
+
+        animalVegetables.add(asianElephant);
+        animalVegetables.add(orangutan);
+        animalVegetables.add(grevyZebra);
+        animalVegetables.add(grayMouseLemur);
+        vegetables.setAnimalFood(animalVegetables);
+
+        animalRawFish.add(bobcat);
+        animalRawFish.add(carpetPython);
+        animalRawFish.add(californiaSeaLion);
+        animalRawFish.add(cheetah);
+        animalRawFish.add(tiger);
+        animalRawFish.add(grayWolf);
+        animalRawFish.add(komodoDragon);
+        rawFish.setAnimalFood(animalRawFish);
+
+        animalRawMeat.add(americanAlligator);
+        animalRawMeat.add(carpetPython);
+        animalRawMeat.add(cheetah);
+        animalRawMeat.add(lion);
+        animalRawMeat.add(manedWolf);
+        animalRawMeat.add(tiger);
+        animalRawMeat.add(grayWolf);
+        animalRawMeat.add(komodoDragon);
+        rawMeat.setAnimalFood(animalRawMeat);
+
+        animalCarrots.add(asianElephant);
+        animalCarrots.add(asianOtter);
+        animalCarrots.add(westernLowlandGorilla);
+        animalCarrots.add(grevyZebra);
+        animalCarrots.add(grayMouseLemur);
+        carrots.setAnimalFood(animalCarrots);
+
+        // Selecting each food for each animal
+        foodAmericanAlligator.add(beef);
+        foodAmericanAlligator.add(rodents);
+        foodAmericanAlligator.add(rawMeat);
+        americanAlligator.setFood(foodAmericanAlligator);
+
+        foodAmericanBison.add(hay);
+        foodAmericanBison.add(fruits);
+        foodAmericanBison.add(seeds);
+        americanBison.setFood(foodAmericanBison);
+
+        foodAsianElephant.add(carrots);
+        foodAsianElephant.add(vegetables);
+        foodAsianElephant.add(fruits);
+        asianElephant.setFood(foodAsianElephant);
+
+        foodAsianOtter.add(fruits);
+        foodAsianOtter.add(insects);
+        foodAsianOtter.add(carrots);
+        asianOtter.setFood(foodAsianOtter);
+
+        foodBaldEagle.add(fruits);
+        foodBaldEagle.add(rodents);
+        foodBaldEagle.add(eggs);
+        baldEagle.setFood(foodBaldEagle);
+
+        foodBobcat.add(beef);
+        foodBobcat.add(rodents);
+        foodBobcat.add(rawFish);
+        bobcat.setFood(foodBobcat);
+
+        foodCarpetPython.add(beef);
+        foodCarpetPython.add(rawMeat);
+        foodCarpetPython.add(rawFish);
+        foodCarpetPython.add(rodents);
+        carpetPython.setFood(foodCarpetPython);
+
+        foodCaliforniaSeaLion.add(rawFish);
+        californiaSeaLion.setFood(foodCaliforniaSeaLion);
+
+        foodCheetah.add(beef);
+        foodCheetah.add(rawFish);
+        foodCheetah.add(rawMeat);
+        cheetah.setFood(foodCheetah);
+
+        foodGiantPanda.add(bamboo);
+        foodGiantPanda.add(hay);
+        foodGiantPanda.add(treeBark);
+        giantPanda.setFood(foodGiantPanda);
+
+        foodLion.add(beef);
+        foodLion.add(rawMeat);
+        lion.setFood(foodLion);
+
+        foodManedWolf.add(beef);
+        foodManedWolf.add(rawMeat);
+        manedWolf.setFood(foodManedWolf);
+
+        foodOrangutan.add(vegetables);
+        foodOrangutan.add(insects);
+        foodOrangutan.add(fruits);
+        orangutan.setFood(foodOrangutan);
+
+        foodRedPanda.add(bamboo);
+        foodRedPanda.add(treeBark);
+        foodRedPanda.add(seeds);
+        redPanda.setFood(foodRedPanda);
+
+        foodTiger.add(beef);
+        foodTiger.add(rawFish);
+        foodTiger.add(rawMeat);
+        tiger.setFood(foodTiger);
+
+        foodWesternLowlandGorilla.add(fruits);
+        foodWesternLowlandGorilla.add(carrots);
+        foodWesternLowlandGorilla.add(insects);
+        westernLowlandGorilla.setFood(foodWesternLowlandGorilla);
+
+        foodGrayWolf.add(beef);
+        foodGrayWolf.add(rawFish);
+        foodGrayWolf.add(rawMeat);
+        grayWolf.setFood(foodGrayWolf);
+
+        foodGrevyZebra.add(hay);
+        foodGrevyZebra.add(vegetables);
+        foodGrevyZebra.add(carrots);
+        grevyZebra.setFood(foodGrevyZebra);
+
+        foodKomodoDragon.add(beef);
+        foodKomodoDragon.add(rawFish);
+        foodKomodoDragon.add(rawMeat);
+        komodoDragon.setFood(foodKomodoDragon);
+
+        foodGrayMouseLemur.add(hay);
+        foodGrayMouseLemur.add(vegetables);
+        foodGrayMouseLemur.add(carrots);
+        grayMouseLemur.setFood(foodGrayMouseLemur);
+
+        //update the DB
+        animalRepository.save(americanAlligator);
+        animalRepository.save(americanBison);
+        animalRepository.save(asianElephant);
+        animalRepository.save(asianOtter);
+        animalRepository.save(baldEagle);
+        animalRepository.save(bobcat);
+        animalRepository.save(carpetPython);
+        animalRepository.save(californiaSeaLion);
         animalRepository.save(cheetah);
-        foodRepository.save(rawFish);
+        animalRepository.save(giantPanda);
+        animalRepository.save(lion);
+        animalRepository.save(manedWolf);
+        animalRepository.save(orangutan);
+        animalRepository.save(redPanda);
+        animalRepository.save(tiger);
+        animalRepository.save(westernLowlandGorilla);
+        animalRepository.save(grayWolf);
+        animalRepository.save(grevyZebra);
+        animalRepository.save(komodoDragon);
+        animalRepository.save(grayMouseLemur);
+        foodRepository.save(bamboo);
         foodRepository.save(beef);
+        foodRepository.save(eggs);
+        foodRepository.save(fruits);
+        foodRepository.save(hay);
+        foodRepository.save(insects);
+        foodRepository.save(rodents);
+        foodRepository.save(seeds);
+        foodRepository.save(treeBark);
+        foodRepository.save(vegetables);
+        foodRepository.save(rawFish);
+        foodRepository.save(rawMeat);
+        foodRepository.save(carrots);
 
         // Animal to Employee
-        Set<Animal> animalsToEmployee = new HashSet<>();
+        Set<Animal> noopAnimal = new HashSet<>();
+        Set<Animal> spencerAnimal = new HashSet<>();
+        Set<Animal> brentonAnimal = new HashSet<>();
+        Set<Animal> joseAnimal = new HashSet<>();
+        Set<Animal> semeonAnimal = new HashSet<>();
+        Set<Animal> terrellAnimal = new HashSet<>();
+        Set<Animal> florinaAnimal = new HashSet<>();
+        // select which animal goes with each employee
+        noopAnimal.add(tiger);
+        noopAnimal.add(cheetah);
+        noopAnimal.add(lion);
+        spencerAnimal.add(asianOtter);
+        spencerAnimal.add(grayMouseLemur);
+        spencerAnimal.add(komodoDragon);
+        brentonAnimal.add(bobcat);
+        brentonAnimal.add(manedWolf);
+        brentonAnimal.add(grayWolf);
+        joseAnimal.add(americanBison);
+        joseAnimal.add(asianElephant);
+        joseAnimal.add(grevyZebra);
+        semeonAnimal.add(baldEagle);
+        semeonAnimal.add(carpetPython);
+        semeonAnimal.add(californiaSeaLion);
+        terrellAnimal.add(orangutan);
+        terrellAnimal.add(westernLowlandGorilla);
+        terrellAnimal.add(americanAlligator);
+        florinaAnimal.add(giantPanda);
+        florinaAnimal.add(redPanda);
 
-        animalsToEmployee.add(giantPanda);
-
-        jose.setAnimals(animalsToEmployee);
-        florina.setAnimals(animalsToEmployee);
-
+        noop.setAnimals(noopAnimal);
+        spencer.setAnimals(spencerAnimal);
+        brenton.setAnimals(brentonAnimal);
+        jose.setAnimals(joseAnimal);
+        semeon.setAnimals(semeonAnimal);
+        terrell.setAnimals(terrellAnimal);
+        florina.setAnimals(florinaAnimal);
+        
+        // update DB
+        employeeRepository.save(noop);
+        employeeRepository.save(spencer);
+        employeeRepository.save(brenton);
         employeeRepository.save(jose);
+        employeeRepository.save(semeon);
+        employeeRepository.save(terrell);
         employeeRepository.save(florina);
+
     }
 }
-
-
