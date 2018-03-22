@@ -147,18 +147,6 @@ public class Employee {
                     .put("lastName",lastName)
                     .put("username",username)
                     .put("role",role);
-                JSONArray animalArray = new JSONArray();
-                    this.animals.forEach((Animal animalN) -> {
-                        JSONObject x = new JSONObject();
-                        try {
-                            x.put("animalId",animalN.getAnimalId());
-                            x.put("animalName",animalN.getAnimalName());
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                        animalArray.put(x);
-                    });
-            json.put("Animal",animalArray);
         } catch (JSONException e) {
             e.printStackTrace();
         }
