@@ -179,18 +179,6 @@ public class Animal {
                     .put("numOfAnimal",numOfAnimal)
                     .put("tracking",tracking)
                     .put("notes",notes);
-//                    JSONArray foodArray = new JSONArray();
-//                    this.food.forEach((Food foodN) -> {
-//                        JSONObject food = new JSONObject();
-//                        try {
-//                            food.put("foodId",foodN.getFoodId());
-//                            food.put("foodName",foodN.getFoodName());
-//                        } catch (JSONException e) {
-//                            e.printStackTrace();
-//                        }
-//                        foodArray.put(foodN);
-//                    });
-//                    json.put("Food",foodArray);
         } catch (JSONException e) {
             e.printStackTrace();
         }

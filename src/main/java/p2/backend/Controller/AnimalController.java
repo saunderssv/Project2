@@ -25,14 +25,16 @@ public class AnimalController {
         this.animalService = animalService;
     }
 
-    @GetMapping("/{name}")
-    public Animal byAnimalName(@PathVariable String name){
-        return animalService.byAnimal(name);
+    @GetMapping
+    public @ResponseBody ResponseEntity<Animal> byAnimalName(@RequestParam(value="name") String name){
+        Animal animal = animalService.byAnimal(name);
+        return new ResponseEntity<Animal>(animal,HttpStatus.FOUND);
     }
 
     @GetMapping("/{id}")
-    public Animal byAnimalID(@PathVariable Integer id){
-        return animalService.byAnimalID(id);
+    public @ResponseBody ResponseEntity<Animal> byAnimalID(@PathVariable Integer id){
+        Animal animal = animalService.byAnimalID(id);
+        return new ResponseEntity<Animal>(animal,HttpStatus.FOUND);
     }
 
     @GetMapping("/")
