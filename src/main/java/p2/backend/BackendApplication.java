@@ -1,24 +1,71 @@
 package p2.backend;
 
+import com.jayway.jsonpath.JsonPath;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.springframework.orm.jpa.JpaTransactionManager;
+import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
+import org.springframework.orm.jpa.vendor.Database;
+import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.annotation.Transactional;
 import p2.backend.Beans.*;
 import p2.backend.Repository.*;
 
+import javax.sql.DataSource;
 import java.util.HashSet;
 import java.util.Set;
 
 @SpringBootApplication
+@Configuration
+@EnableJpaRepositories
+@EnableTransactionManagement
 public class BackendApplication implements CommandLineRunner {
 	@Bean
 	public BCryptPasswordEncoder bCryptPasswordEncoder() {
 		return new BCryptPasswordEncoder(15);
 	}
+
+	@Value("${VCAP_SERVICES:{}}")
+    String services;
+
+	@Bean
+    public DataSource dataSource(){
+        DriverManagerDataSource ds = new DriverManagerDataSource();
+        ds.setDriverClassName("org.postgres.Driver");
+        String dbUri = "$.elephantsql.[0].credentials.uri";
+        if(!services.equals("{}")){
+            String uri = JsonPath.read(services,dbUri);
+            ds.setUrl(uri);
+        }
+        return ds;
+    }
+
+    @Bean
+    public LocalContainerEntityManagerFactoryBean entityManagerFactory(){
+        HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
+        vendorAdapter.setDatabase(Database.POSTGRESQL);
+
+        LocalContainerEntityManagerFactoryBean factory = new LocalContainerEntityManagerFactoryBean();
+        factory.setJpaVendorAdapter(vendorAdapter);
+        factory.setDataSource(dataSource());
+        return factory;
+    }
+
+    @Bean
+    public JpaTransactionManager transactionManager(){
+	    JpaTransactionManager txManager = new JpaTransactionManager();
+	    txManager.setEntityManagerFactory(entityManagerFactory().getObject());
+	    return txManager;
+    }
 
 	public static void main(String[] args) {
 		SpringApplication.run(BackendApplication.class, args);
