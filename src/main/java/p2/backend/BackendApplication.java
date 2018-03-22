@@ -441,6 +441,7 @@ public class BackendApplication implements CommandLineRunner {
         animalRepository.save(grevyZebra);
         animalRepository.save(komodoDragon);
         animalRepository.save(grayMouseLemur);
+        
         foodRepository.save(bamboo);
         foodRepository.save(beef);
         foodRepository.save(eggs);
@@ -463,6 +464,7 @@ public class BackendApplication implements CommandLineRunner {
         Set<Animal> semeonAnimal = new HashSet<>();
         Set<Animal> terrellAnimal = new HashSet<>();
         Set<Animal> florinaAnimal = new HashSet<>();
+
         // select which animal goes with each employee
         noopAnimal.add(tiger);
         noopAnimal.add(cheetah);
@@ -492,7 +494,7 @@ public class BackendApplication implements CommandLineRunner {
         semeon.setAnimals(semeonAnimal);
         terrell.setAnimals(terrellAnimal);
         florina.setAnimals(florinaAnimal);
-        
+
         // update DB
         employeeRepository.save(noop);
         employeeRepository.save(spencer);
