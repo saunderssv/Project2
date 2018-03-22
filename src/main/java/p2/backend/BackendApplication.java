@@ -60,6 +60,11 @@ public class BackendApplication implements CommandLineRunner {
         Animal redPanda = new Animal("Red Panda", "Ailurus Fulgens","They have a false thumb which is an extension of the wristbone.","The head and body length of a red panda measures 50 to 64 cm (20 to 25 in), and its tail is 28 to 59 cm (11 to 23 in). Males weigh 3.7 to 6.2 kg (8.2 to 13.7 lb) and females 3 to 6.0 kg (6.6 to 13.2 lb). They have long, soft, reddish-brown fur on the upper parts, blackish fur on the lower parts, and a light face with tear markings and robust cranio dental features. The light face has white badges similar to those of a raccoon, but each individual can have distinctive markings. Their roundish heads have medium-sized upright ears, black noses, and blackish eyes. Their long, bushy tails with six alternating transverse ochre rings provide balance and excellent camouflage against their habitat of moss- and lichen-covered trees. The legs are black and short with thick fur on the soles of the paws. This fur serves as thermal insulation on snow-covered or icy surfaces and conceals scent glands.",4,0,null);
         Animal tiger = new Animal("Tiger", "Panthera Tigris","Tigers are the largest species of cat, and they are endangered.","The tiger is a long-ranging species, and individuals disperse over distances of up to 650 km (400 mi) to reach tiger populations in other areas. It is strong swimmer and often bathes in ponds, lakes and rivers, thus keeping cool in the heat of the day. Among the big cats, only the jaguar shares a similar fondness for water. Individuals can cross rivers up to 7 km (4.3 mi) wide and can swim up to 29 km (18 mi) in a day.They are able to carry prey through or capture it in the water.",2,0,null);
         Animal westernLowlandGorilla = new Animal("Western Lowland Gorilla", "Gorilla Gorilla Gorilla","These gorillas are critically endangered","The tiger is a long-ranging species, and individuals disperse over distances of up to 650 km (400 mi) to reach tiger populations in other areas. It is strong swimmer and often bathes in ponds, lakes and rivers, thus keeping cool in the heat of the day. Among the big cats, only the jaguar shares a similar fondness for water. Individuals can cross rivers up to 7 km (4.3 mi) wide and can swim up to 29 km (18 mi) in a day.They are able to carry prey through or capture it in the water.",2,0,null);
+        Animal grayWolf = new Animal("Gray wolf","Canis lupus","The gray wolf is the largest extant member of the Canidae, excepting certain large breeds of domestic dog.","The gray wolf is one of the world's best-known and most-researched animals, with probably more books written about it than any other wildlife species. It has a long history of association with humans, having been despised and hunted in most pastoral communities because of its attacks on livestock, while conversely being respected in some agrarian and hunter-gatherer societies.",5,0,null);
+        Animal grevyZebra = new Animal("Grevy's Zebra","Equus grevyi","Foals are born with brown and white striping, with the brown stripes darkening as they grow older.","The Grévy's zebra, also known as the imperial zebra, is the largest living wild equid and the largest and most threatened of the three species of zebra, the other two being the plains zebra and the mountain zebra. Named after Jules Grévy, it is the sole extant member of the subgenus Dolichohippus. The Grévy's zebra is found in Kenya and Ethiopia. Compared with other zebras, it is tall, has large ears, and its stripes are narrower.",4,0,null);
+        Animal komodoDragon = new Animal("Komodo Dragon","Varanus komodoensis","Komodo dragons have a venomous bite.","As a result of their size, these lizards dominate the ecosystems in which they live. Komodo dragons hunt and ambush prey including invertebrates, birds, and mammals. It has been claimed that they have a venomous bite; there are two glands in the lower jaw which secrete several toxic proteins. The biological significance of these proteins is disputed, but the glands have been shown to secrete an anticoagulant. Komodo dragon group behaviour in hunting is exceptional in the reptile world. The diet of big Komodo dragons mainly consists of Timor deer, though they also eat considerable amounts of carrion. Komodo dragons also occasionally attack humans.",4,0,null);
+        Animal grayMouseLemur = new Animal("Gray mouse lemur","Microcebus murinus","It is very active, and though it forages alone, groups of males and females form sleeping groups and share tree holes during the day.","The gray mouse lemur (Microcebus murinus), grey mouse lemur or lesser mouse lemur, is a small lemur, a type of strepsirrhine primate, found only on the island of Madagascar. Weighing 58 to 67 grams (2.0 to 2.4 oz), it is the largest of the mouse lemurs (genus Microcebus), a group that includes the smallest primates in the world.",2,0,null);
+
 
 
         //Create all the Employee
@@ -104,7 +109,7 @@ public class BackendApplication implements CommandLineRunner {
         Location lAsianElephant = new Location(38.931215, -77.050295,asianElephant);
         Location lAsianOtter = new Location(38.931103, -77.052868,asianOtter);
         Location lBaldEagle = new Location(38.930536, -77.049306,baldEagle);
-        Location lBobcat = new Location(38.9299392,-77.0476189,bobcat);
+        Location lBobcat = new Location(38.928624, -77.046737,bobcat);
         Location lCarpetPython = new Location(38.9297635,-77.0475369,carpetPython);
         Location lCaliforniaSeaLion = new Location(38.9290841,-77.0492791,californiaSeaLion);
         Location lCheetah = new Location(38.930897, -77.053289,cheetah);
@@ -115,6 +120,10 @@ public class BackendApplication implements CommandLineRunner {
         Location lRedPanda = new Location(38.931110, -77.052924,redPanda);
         Location lTiger = new Location(38.928793, -77.046424,tiger);
         Location lWesternLowlandGorilla = new Location(38.930138, -77.048323,westernLowlandGorilla);
+        Location lGrayWolf = new Location(38.930499, -77.049216, grayWolf);
+        Location lGrevyZebra = new Location(38.930638, -77.053438,grevyZebra);
+        Location lKomodoDragon = new Location(38.929676, -77.047403,komodoDragon);
+        Location lGrayMouseLemur = new Location(38.930637, -77.048754,grayMouseLemur);
 
 
         //save them all
@@ -134,6 +143,10 @@ public class BackendApplication implements CommandLineRunner {
         animalRepository.save(redPanda);
         animalRepository.save(tiger);
         animalRepository.save(westernLowlandGorilla);
+        animalRepository.save(grayWolf);
+        animalRepository.save(grevyZebra);
+        animalRepository.save(komodoDragon);
+        animalRepository.save(grayMouseLemur);
 
         employeeRepository.save(noop);
         employeeRepository.save(spencer);
@@ -183,7 +196,10 @@ public class BackendApplication implements CommandLineRunner {
         locationRepository.save(lRedPanda);
         locationRepository.save(lTiger);
         locationRepository.save(lWesternLowlandGorilla);
-
+        locationRepository.save(lGrayWolf);
+        locationRepository.save(lGrevyZebra);
+        locationRepository.save(lKomodoDragon);
+        locationRepository.save(lGrayMouseLemur);
 
         //Create links between everything
         // food animal link
