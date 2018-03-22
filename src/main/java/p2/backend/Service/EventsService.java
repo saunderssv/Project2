@@ -19,12 +19,14 @@ public class EventsService {
         return eventsRepository.findAll();
     }
 
-    public void saveEvent(Events save){
+    public String saveEvent(Events save){
         eventsRepository.save(save);
+        return "tested";
     }
 
-    public void deleteEvent(Events delete){
+    public String deleteEvent(Events delete){
         eventsRepository.delete(delete);
+        return "tested";
     }
 
 

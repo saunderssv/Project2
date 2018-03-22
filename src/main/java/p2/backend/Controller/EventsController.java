@@ -23,12 +23,14 @@ public class EventsController {
     }
 
     @PostMapping("/save")
-    public void saveEvent(@RequestBody Events save){
+    public String saveEvent(@RequestBody Events save){
         eventsService.saveEvent(save);
+        return "tested";
     }
 
     @PostMapping("/delete")
-    public void deleteEvent(@RequestBody Events delete){
+    public String deleteEvent(@RequestBody Events delete){
         eventsService.deleteEvent(delete);
+        return "tested";
     }
 }
