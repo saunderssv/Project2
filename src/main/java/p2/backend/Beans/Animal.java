@@ -6,6 +6,8 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.fasterxml.jackson.databind.ser.std.StdSerializer;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import javax.persistence.*;
 
@@ -176,17 +178,30 @@ public class Animal {
 
     @Override
     public String toString() {
-        ObjectMapper mapper = new ObjectMapper();
-        ObjectNode json = mapper.createObjectNode();
-        json.put("animalName",animalName)
-                .put("scientificName",scientificName)
-                .put("funFact",funFact)
-                .put("summary",summary)
-                .put("numOfAnimal",numOfAnimal)
-                .put("tracking",tracking)
-                .put("notes",notes)
-                .putPOJO("food",food)
-                .putPOJO("employees",employees);
+        JSONObject json = new JSONObject();
+        try {
+            json.put("animalName",this.animalName)
+                    .put("scientificName",scientificName)
+                    .put("funFact",funFact)
+                    .put("summary",summary)
+                    .put("numOfAnimal",numOfAnimal)
+                    .put("tracking",tracking)
+                    .put("notes",notes);
+//                    JSONArray foodArray = new JSONArray();
+//                    this.food.forEach((Food foodN) -> {
+//                        JSONObject food = new JSONObject();
+//                        try {
+//                            food.put("foodId",foodN.getFoodId());
+//                            food.put("foodName",foodN.getFoodName());
+//                        } catch (JSONException e) {
+//                            e.printStackTrace();
+//                        }
+//                        foodArray.put(foodN);
+//                    });
+//                    json.put("Food",foodArray);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
         return json.toString();
     }
 }
