@@ -1,1 +1,1 @@
-java $JAVA_OPTS --add-modules java.xml.bind -Dserver.port=$PORT -jar target/backend-0.0.1-SNAPSHOT.jar -cp target/classes:target/dependency/*
+web: java $JAVA_OPTS --add-modules java.xml.bind -Dserver.port=$PORT -jar target/backend-0.0.1-SNAPSHOT.jar -cp target/classes:target/dependency/*
