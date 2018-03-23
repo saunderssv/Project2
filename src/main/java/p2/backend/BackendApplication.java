@@ -441,7 +441,7 @@ public class BackendApplication implements CommandLineRunner {
         animalRepository.save(grevyZebra);
         animalRepository.save(komodoDragon);
         animalRepository.save(grayMouseLemur);
-        
+
         foodRepository.save(bamboo);
         foodRepository.save(beef);
         foodRepository.save(eggs);
