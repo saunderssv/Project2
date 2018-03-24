@@ -44,6 +44,11 @@ public class AnimalController {
         return new ResponseEntity<Set<Animal>>(zoo,HttpStatus.OK);
     }
 
+    @PostMapping("/increment")
+    public void addAnimalLike(@RequestBody Integer id ){
+        animalService.incrementCount(id);
+    }
+
     @GetMapping("/")
     public @ResponseBody ResponseEntity<Set<Animal>> getAnimals(){
         return new ResponseEntity<Set<Animal>>(animalService.allAnimals(), HttpStatus.OK);

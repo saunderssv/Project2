@@ -6,6 +6,7 @@ import p2.backend.Beans.Animal;
 import p2.backend.Beans.Employee;
 import p2.backend.Repository.AnimalRepository;
 
+
 import java.util.Set;
 
 @Service
@@ -31,6 +32,11 @@ public class AnimalService {
     }
     public Set<Animal> getAnimalsByEmployee(Employee id){
         return animalRepository.findAnimalsByEmployees(id);
+    }
+
+    public void incrementCount(Integer id){
+        animalRepository.updateTracking(id);
+
     }
 
     public void saveAnimal (Animal save){

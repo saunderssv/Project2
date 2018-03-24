@@ -1,9 +1,8 @@
 package p2.backend.Beans;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import javax.persistence.*;
@@ -13,6 +12,8 @@ import java.util.Set;
 
 @Entity
 @Table(name = "Food")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class,
+        property  = "foodId")
 public class Food {
 
     @Id @GeneratedValue(strategy = GenerationType.AUTO) @Column(name = "foodId")
