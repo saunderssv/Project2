@@ -5,7 +5,7 @@
         <ng-template> 
           <img style="height: 250px; width:100%" src="assets/bobcat2.jpg"/>
           <div style="background-color: #263238"><h4 class="pl-2 py-3 text-white">{{d.animal.animalName}}</h4></div>
-          <button class="ml-2 btn border-0 bg-white" ><img src="assets/clicked.png"/></button>
+          <button name="" class="ml-2 btn border-0 bg-white " (click)="myfunction(d.animal.animalId)"><img src="assets/clicked.png"/></button>
           <p class="lead mt-2"><strong class="pr-5">Scientific Name <br></strong>{{d.animal.scientificName}}</p>
           <p class="lead pr-4"><strong>Fun Fact <br></strong>{{d.animal.funFact}}</p>
           <p class="lead pr-4"><strong>Summary <br> </strong>{{d.animal.summary}}</p> 
