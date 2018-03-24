@@ -31,7 +31,7 @@ export class LoginCmpComponent implements OnInit {
    this.step = 'Good'
     var body = { "username":this.username,"password":this.password}
 
-    this.http.post('https://zootropolis.herokuapp.com/users/signin',body).
+    this.http.post('https://zootropolis-thankful-quokka.cfapps.io/users/signin',body).
     map (
       (response) => response.text()
     ).subscribe (

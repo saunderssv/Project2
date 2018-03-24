@@ -16,7 +16,7 @@ import 'rxjs/add/operator/map';
 })
 export class AdministratorCmpComponent implements OnInit {
 
-  
+  creaturs;
   data2;
   zookeeper: {};
   animals: Animal[] = [];
