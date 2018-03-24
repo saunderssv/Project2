@@ -23,56 +23,13 @@
           <p><span><strong>Username: </strong></span>{{zookeeper.username}}</p>
       </div>
       <div class="tab-pane fade " id="animal" role="tabpanel" aria-labelledby="animal-tab">
-          <h3>Animal Information</h3>
-          <table class="data-table table table-hover">
-              <thead>
-                <tr>
-                  <th scope="col">#</th>
-                  <th scope="col">Animal</th>
-                  <!-- <th scope="col">Name</th>
-                  <th scope="col">Sex</th> -->
-                  <th scope="col">Notes</th>
-                  <th scope="col">Food</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr *ngFor="let anm of animals">
-                  <th scope="row">{{anm.id}}</th>
-                  <td>{{anm.type}}</td>
-                  <!-- <td>{{anm.name}}</td>
-                  <td>{{anm.sex}}</td> -->
-                  <td contenteditable="true" [textContent]="anm.notes" (input)="anm.notes = $event.target.textContent"></td>
-                  <td>{{anm.food}}</td>
-                </tr>
-              </tbody>
-            </table>
+        <app-animal-cmp></app-animal-cmp>
       </div>
       <div class="tab-pane fade" id="inventory" role="tabpanel" aria-labelledby="inventory-tab">
-          <h3>Inventory</h3>
-          <table class="data-table table table-hover">
-              <thead>
-                <tr>
-                  <th scope="col">#</th>
-                  <th scope="col">Item</th>
-                  <th scope="col">Quantity</th>
-                  <th scope="col">Next Delivery</th>
-                  <th scope="col">Notes</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr *ngFor="let item of inventory">
-                  <th scope="row">{{item.id}}</th>
-                  <td>{{item.item}}</td>
-                  <td contenteditable="true" [textContent]="item.quantity" (input)="item.quantity = $event.target.textContent"></td>
-                  <td contenteditable="true" [textContent]="item.next" (input)="item.next = $event.target.textContent"></td>
-                  <td contenteditable="true" [textContent]="item.notes" (input)="item.notes = $event.target.textContent"></td>
-                </tr>
-              </tbody>
-            </table>
+        <app-inventory-cmp></app-inventory-cmp>
       </div>
       <div class="tab-pane fade" id="stats" role="tabpanel" arial-labelledby="stats-tab">
         <app-pie-cmp> </app-pie-cmp>
       </div>
-            
     </div>
   </div>

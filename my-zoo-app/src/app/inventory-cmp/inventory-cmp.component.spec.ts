@@ -1,20 +1,20 @@
 // import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-// import { BarCmpComponent } from './bar-cmp.component';
+// import { InventoryCmpComponent } from './inventory-cmp.component';
 
-// describe('BarCmpComponent', () => {
-//   let component: BarCmpComponent;
-//   let fixture: ComponentFixture<BarCmpComponent>;
+// describe('InventoryCmpComponent', () => {
+//   let component: InventoryCmpComponent;
+//   let fixture: ComponentFixture<InventoryCmpComponent>;
 
 //   beforeEach(async(() => {
 //     TestBed.configureTestingModule({
-//       declarations: [ BarCmpComponent ]
+//       declarations: [ InventoryCmpComponent ]
 //     })
 //     .compileComponents();
 //   }));
 
 //   beforeEach(() => {
-//     fixture = TestBed.createComponent(BarCmpComponent);
+//     fixture = TestBed.createComponent(InventoryCmpComponent);
 //     component = fixture.componentInstance;
 //     fixture.detectChanges();
 //   });
