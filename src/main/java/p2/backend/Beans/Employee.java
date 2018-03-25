@@ -35,7 +35,7 @@ public class Employee {
     @JoinTable(name = "Employee_Animal", joinColumns = @JoinColumn(name = "employeeId", referencedColumnName = "employeeId"),
             inverseJoinColumns = @JoinColumn(name = "animalId", referencedColumnName = "animalId"))
     @JsonIgnore
-    private Set<Animal> animals;
+    private List<Animal> animals;
 
     public Employee() {
     }
@@ -48,7 +48,7 @@ public class Employee {
         this.role = role;
     }
 
-    public Employee(String firstName, String lastName, String username, String password, int role, Set<Animal> animals) {
+    public Employee(String firstName, String lastName, String username, String password, int role, List<Animal> animals) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.username = username;
@@ -105,11 +105,11 @@ public class Employee {
         this.role = role;
     }
 
-    protected Set<Animal> getAnimals() {
+    protected List<Animal> getAnimals() {
         return animals;
     }
 
-    public void setAnimals(Set<Animal> animals) {
+    public void setAnimals(List<Animal> animals) {
         this.animals = animals;
     }
 

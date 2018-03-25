@@ -1,14 +1,12 @@
 package p2.backend.Beans;
 
 import com.fasterxml.jackson.annotation.*;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.node.ObjectNode;
-import com.fasterxml.jackson.databind.ser.std.StdSerializer;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import javax.persistence.*;
 
+import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
@@ -43,11 +41,11 @@ public class Animal {
 
     @ManyToMany(mappedBy = "animalFood")
     @JsonManagedReference
-    private Set<Food> food;
+    private List<Food> food;
 
     @ManyToMany(mappedBy = "animals")
     @JsonIgnore
-    private Set<Employee> employees;
+    private List<Employee> employees;
 
     public Animal(){
 
@@ -63,7 +61,7 @@ public class Animal {
         this.notes = notes;
     }
 
-    public Animal(String animalName, String scientificName, String funFact, String summary, int numOfAnimal, int tracking, String notes, Set<Food> food, Set<Employee> employees) {
+    public Animal(String animalName, String scientificName, String funFact, String summary, int numOfAnimal, int tracking, String notes, List<Food> food, List<Employee> employees) {
         this.animalName = animalName;
         this.scientificName = scientificName;
         this.funFact = funFact;
@@ -130,19 +128,19 @@ public class Animal {
     public void setTracking(int tracking) {
         this.tracking = tracking;
     }
-    public Set<Food> getFood() {
+    public List<Food> getFood() {
         return food;
     }
 
-    public void setFood(Set<Food> food) {
+    public void setFood(List<Food> food) {
         this.food = food;
     }
 
-    public Set<Employee> getEmployees() {
+    public List<Employee> getEmployees() {
         return employees;
     }
 
-    public void setEmployees(Set<Employee> employees) {
+    public void setEmployees(List<Employee> employees) {
         this.employees = employees;
     }
 
