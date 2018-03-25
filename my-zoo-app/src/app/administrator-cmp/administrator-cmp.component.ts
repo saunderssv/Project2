@@ -40,8 +40,8 @@ export class AdministratorCmpComponent implements OnInit {
   setUserInfo(data){
     var data2 = JSON.parse(data);
     localStorage.setItem("Firstname", data2["firstName"]);
-    localStorage.setItem("Lastname",data2["lastName"])    
-    console.log(data2)
+    localStorage.setItem("Lastname",data2["lastName"])   
+    this.zookeeper = new Zookeeper( localStorage.getItem("Username"), localStorage.getItem("Firstname"), localStorage.getItem("Lastname"), localStorage.getItem("Role"));     
   }
 
   ngOnInit() {

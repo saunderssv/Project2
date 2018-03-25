@@ -8,6 +8,9 @@ import { Http, Response, Headers, RequestOptions  } from '@angular/http';
   styleUrls: ['./map-cmp.component.css']
 })
 export class MapCmpComponent implements OnInit {
+
+  
+
   id;
   httpdata;
   lat: number = 38.931001;
@@ -37,9 +40,7 @@ export class MapCmpComponent implements OnInit {
   };
   picture: string = this.pictures["Gray wolf"];
 
-  myclick(event){
     
-  }
   constructor(private http: Http) {
 
 
@@ -66,17 +67,19 @@ export class MapCmpComponent implements OnInit {
 
 
   myfunction(id: any){
-    const headers = new Headers();
-    headers.append('Content-Type', "application/json");
-    const options = new RequestOptions({headers: headers});
+
     console.log(id)
-    var body = id
-    this.http.post('https://zootropolis.herokuapp.com/Animal/increment',id.toString(),options).
-    map (
-      (response) => response.text()
-    ).subscribe (
-      (data) => {console.log(data)}
-    )
+    // const headers = new Headers();
+    // headers.append('Content-Type', "application/json");
+    // const options = new RequestOptions({headers: headers});
+    // console.log(id)
+    // var body = id
+    // this.http.post('https://zootropolis.herokuapp.com/Animal/increment',id.toString(),options).
+    // map (
+    //   (response) => response.text()
+    // ).subscribe (
+    //   (data) => {console.log(data)}
+    // )
     
   }
 
