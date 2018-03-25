@@ -9,7 +9,7 @@ import p2.backend.Beans.Employee;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-
+import java.util.List;
 import java.util.Set;
 
 @Repository
@@ -24,5 +24,6 @@ public interface AnimalRepository extends JpaRepository<Animal,Integer> {
     @Query("UPDATE Animal a SET a.tracking = a.tracking + 1 where a.animalId = :id")
     void updateTracking(@Param("id") Integer id);
 
+    List<Animal> findAnimalsByAnimalIdIsNotNullOrderByTrackingDesc();
 
 }

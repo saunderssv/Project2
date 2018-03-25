@@ -10,7 +10,9 @@ import p2.backend.Beans.Employee;
 import p2.backend.Beans.Food;
 import p2.backend.Service.AnimalService;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @CrossOrigin
@@ -42,6 +44,13 @@ public class AnimalController {
 		Animal[] anArr = (Animal[]) zoo.toArray();
 		*/
         return new ResponseEntity<Set<Animal>>(zoo,HttpStatus.OK);
+    }
+
+    @PostMapping("/topfive")
+    public ResponseEntity<List<Animal>> topFive(){
+        List<Animal> topFiveAnimals = new ArrayList<>();
+        topFiveAnimals = animalService.getTopFiveAnimals();
+        return new ResponseEntity<List<Animal>>(topFiveAnimals.subList(0,5),HttpStatus.OK);
     }
 
     @PostMapping("/increment")

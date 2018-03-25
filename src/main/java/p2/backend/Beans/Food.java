@@ -6,6 +6,7 @@ import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
@@ -35,7 +36,7 @@ public class Food {
     @JoinTable(name = "Food_Animal", joinColumns = @JoinColumn(name = "foodId", referencedColumnName = "foodId"),
             inverseJoinColumns = @JoinColumn(name = "animalId", referencedColumnName = "animalId"))
     @JsonIgnore
-    private Set<Animal> animalFood;
+    private List<Animal> animalFood;
 
     public Food(){
 
@@ -48,11 +49,11 @@ public class Food {
         this.notes = notes;
     }
 
-    public Set<Animal> getAnimalFood() {
+    public List<Animal> getAnimalFood() {
         return animalFood;
     }
 
-    public void setAnimalFood(Set<Animal> animalFood) {
+    public void setAnimalFood(List<Animal> animalFood) {
         this.animalFood = animalFood;
     }
 

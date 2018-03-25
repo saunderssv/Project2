@@ -7,6 +7,7 @@ import p2.backend.Beans.Employee;
 import p2.backend.Repository.AnimalRepository;
 
 
+import java.util.List;
 import java.util.Set;
 
 @Service
@@ -38,6 +39,11 @@ public class AnimalService {
         animalRepository.updateTracking(id);
 
     }
+
+    public List<Animal> getTopFiveAnimals(){
+        return animalRepository.findAnimalsByAnimalIdIsNotNullOrderByTrackingDesc();
+    }
+
 
     public void saveAnimal (Animal save){
         animalRepository.save(save);
