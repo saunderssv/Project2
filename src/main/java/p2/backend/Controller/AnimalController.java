@@ -50,7 +50,7 @@ public class AnimalController {
     public ResponseEntity<List<Animal>> topFive(){
         List<Animal> topFiveAnimals = new ArrayList<>();
         topFiveAnimals = animalService.getTopFiveAnimals();
-        return new ResponseEntity<List<Animal>>(topFiveAnimals.subList(0,5),HttpStatus.FOUND);
+        return new ResponseEntity<List<Animal>>(topFiveAnimals.subList(0,5),HttpStatus.OK);
     }
 
     @PostMapping("/increment")
