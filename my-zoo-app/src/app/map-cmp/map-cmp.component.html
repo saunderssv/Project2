@@ -3,7 +3,7 @@
     <agm-marker  *ngFor= "let d of httpdata; let i = index" [latitude]=d.latitude [longitude]= d.longitude> 
       <agm-snazzy-info-window [maxHeight]=600 padding="18px"  [maxWidth]=600  [closeWhenOthersOpen]="true">
         <ng-template> 
-          <img style="height: 250px; width:100%" src="assets/bobcat2.jpg"/>
+          <img style="width:100%" src="{{pictures[d.animal.animalName]}}"/>
           <div style="background-color: #263238"><h4 class="pl-2 py-3 text-white">{{d.animal.animalName}}</h4></div>
           <button class="ml-2 btn border-0 bg-white" ><img src="assets/clicked.png"/></button>
           <p class="lead mt-2"><strong class="pr-5">Scientific Name <br></strong>{{d.animal.scientificName}}</p>

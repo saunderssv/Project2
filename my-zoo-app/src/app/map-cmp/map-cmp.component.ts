@@ -12,6 +12,30 @@ export class MapCmpComponent implements OnInit {
   httpdata;
   lat: number = 38.931001;
   lng: number = -77.0512221;
+  pictures={
+    default : "assets/Bobcat.jpg",
+    "American Alligator":  "assets/American-Alligator.jpg",
+    "American Bison": "assets/American-Bison.jpg",
+    "Asian Elephant": "assets/Asian-Elephant.jpg",
+    "Asian Otter": "assets/Asian-Otter.jpg",
+    "Bald Eagle": "assets/Bald-Eagle.jpg",
+    "Bobcat": "assets/Bobcat.jpg",
+    "Carpet Python": "assets/Carpet-Python.jpg",
+    "California Sea Lion": "assets/California-Sea-Lion.jpg",
+    "Cheetah": "assets/Cheetah.jpg",
+    "Giant Panda": "assets/Giant-Panda.JPG", 
+    "Lion": "assets/Lion.jpg",
+    "Maned wolf": "assets/Maned-Wolf.jpg",
+    "Orangutan": "assets/Orangutan.JPG",
+    "Red Panda": "assets/Red-Panda.JPG",
+    "Tiger": "assets/Tiger.jpg",
+    "Western Lowland Gorilla": "assets/Western-Lowland-Gorilla.jpg",
+    "Gray wolf": "assets/Gray-Wolf.jpg",
+    "Komodo Dragon": "assets/Komodo-Dragon.jpg",
+    "Gray mouse lemur": "assets/Gray-Mouse-Lemur.JPG",
+    "Grevy's Zebra": "assets/Grevy's-Zebra.jpg"   
+  };
+  picture: string = this.pictures["Gray wolf"];
 
   myclick(event){
     
