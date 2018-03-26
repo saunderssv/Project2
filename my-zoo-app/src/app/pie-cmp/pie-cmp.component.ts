@@ -39,7 +39,7 @@ export class PieCmpComponent implements OnInit {
     headers.append('Authorization', 'Bearer'+ ' '+"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJhdWQiOiJtYW5hZ2VyIiwic3ViIjoiNiIsImlzcyI6Ilpvb3Ryb3BvbGlzIiwiZXhwIjoxNTIyNDU4NTM3fQ.lfnW2eAuW9h6hTEyf9oYLEufAPsZuWuayCmSr1zPD0q-xBXydRDIrio2rDmL4nlpUyq4rr40H6poCmJFaJj0rw");
     const options = new RequestOptions({headers: headers});
     var body = ' '
-    this.http.post('https://zootropolis-thankful-quokka.cfapps.io/Location/',body,options).
+    this.http.post('https://zootropolis.herokuapp.com/Location/',body,options).
     map (
       (response) => response.text()
     ).subscribe (

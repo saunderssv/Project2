@@ -31,7 +31,7 @@ export class LoginCmpComponent implements OnInit {
    this.step = 'Good'
     var body = { "username":this.username,"password":this.password}
 
-    this.http.post('https://zootropolis-thankful-quokka.cfapps.io/users/signin',body).
+    this.http.post('https://zootropolis.herokuapp.com/users/signin',body).
     map (
       (response) => response.text()
     ).subscribe (
@@ -45,6 +45,7 @@ export class LoginCmpComponent implements OnInit {
     
     var token = data;
     var data2 = jwtDecode(token);
+    console.log(data2)
     localStorage.setItem("token",data);
     localStorage.setItem("Username",this.username);
     localStorage.setItem("Role",data2['aud']);

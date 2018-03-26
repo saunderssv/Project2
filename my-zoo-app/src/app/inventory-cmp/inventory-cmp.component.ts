@@ -15,7 +15,7 @@ export class InventoryCmpComponent implements OnInit {
     headers.append('Authorization', 'Bearer'+ ' '+ localStorage.getItem('token'));
     const options = new RequestOptions({headers: headers});
     var body = { "employeeId": +localStorage.getItem("Id")}
-    this.http.post('https://zootropolis-thankful-quokka.cfapps.io/Food/',body, options).
+    this.http.post('https://zootropolis.herokuapp.com/Food/',body, options).
     map (
       (response) => response.text()
     ).subscribe (

@@ -9,7 +9,7 @@
       <li class="nav-item">
         <a class="nav-link" id="inventory-tab" data-toggle="pill" href="#inventory" role="tab" aria-controls="inventory" aria-selected="false">Inventory</a>
       </li>
-      <li  *ngIf="zookeeper.title=='manager'" class="nav-item">
+      <li  *ngIf="zookeeper.title=='owner'" class="nav-item">
         <a class="nav-link" id="stats-tab" data-toggle="pill" href="#stats" role="tab" aria-controls="stats" aria-selected="false">Statistics</a>
       </li>
     <button class="btn btn-success ml-auto" (click)="signOut($event)">Log Out</button>
