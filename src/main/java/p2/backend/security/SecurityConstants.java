@@ -10,4 +10,5 @@ public class SecurityConstants {
 	public static final String EVENTS = "/Events/";
 	public static final String ANIMALS = "/Animal/";
 	public static final String LIKE = "/Animal/increment";
+	public static final String LOCATION = "/Location/";
 }
